@@ -30,8 +30,8 @@ var SetPath string
 
 func main() {
 	// SetPath = "/workspace/github.com/medical/"
-	SetPath = "/opt/gopath/src/github.com/hyperledger/fabric-samples/medical/"
-	// SetPath = "/Users/monk/code/go/src/medical"
+	// SetPath = "/opt/gopath/src/github.com/hyperledger/fabric-samples/medical/"
+	SetPath = "/Users/monk/code/go/src/medical/"
 	// init orgs information
 	orgs := []*sdkInit.OrgInfo{
 		{
@@ -58,8 +58,8 @@ func main() {
 	}
 
 	// sdk setup
-	// sdk, err := sdkInit.Setup("config_monk.yaml", &info)
-	sdk, err := sdkInit.Setup("config.yaml", &info)
+	sdk, err := sdkInit.Setup("config_monk.yaml", &info)
+	// sdk, err := sdkInit.Setup("config.yaml", &info)
 	if err != nil {
 		fmt.Println(">> SDK setup error:", err)
 		os.Exit(-1)

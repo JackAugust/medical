@@ -73,6 +73,7 @@ func (t *ServiceSetup) QueryAllMed() ([]TableRow, error) {
 	// fmt.Println("subjectMark is:", subjectMark_list)
 	SQLString2 := "select _CaseNumber from base_info where _Researcher='" + owner + "'"
 	caseNumber_list := queryDB(DB, SQLString2)
+
 	// fmt.Println("caseNumber is:", caseNumber_list)
 	// SQLString3 := "select _CaseNumber from base_info where _Researcher='" + owner + "'"
 	// intro := queryDB(DB, SQLString2)
@@ -85,11 +86,18 @@ func (t *ServiceSetup) QueryAllMed() ([]TableRow, error) {
 	for i := 0; i < len(subjectMark_list); i++ {
 
 		var tablerow TableRow
+		// 第一列序号
 		tablerow.FirstColumn = strconv.Itoa(i + 1)
+		// 第二列subjectmark
 		tablerow.SecondColumn = subjectMark_list[i]
+		// 第三列caseNumber
 		tablerow.ThirdColumn = caseNumber_list[i]
+		// 第四列返回结果
 		tablerow.FourthColumn = "成功"
+		// 第五列备注
 		tablerow.FifthColumn = "无"
+		// 第六列策略已生成
+		tablerow.SixthColumn = "已生成"
 		tabledata = append(tabledata, tablerow)
 	}
 	return tabledata, nil

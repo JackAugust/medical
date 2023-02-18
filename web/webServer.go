@@ -60,8 +60,12 @@ func WebStart(app controller.Application) {
 	// 05-用户信息验证 显示页面为: VerifyUserInfo.html
 	http.HandleFunc("/用户信息验证", app.VerifyUserInfo)
 
+	// 02访问策略生成.html 其实是更新
+	// http.HandleFunc("/访问策略生成", app.UpdatePolicy)
+
+	// 02医疗数据上传.html
 	http.HandleFunc("/uploadMed", app.UploadMed)
-	// http.HandleFunc("/uploadOldMed", app.UploadOldMed)
+
 	http.HandleFunc("/operateMed", app.OperateMed)
 	http.HandleFunc("/auditMed", app.AuditMed)
 
@@ -83,6 +87,7 @@ func WebStart(app controller.Application) {
 	http.HandleFunc("/auditByOriginalAuthor", app.AuditByOriginalAuthor)
 	http.HandleFunc("/auditByPatient", app.AuditByPatient)
 
+	// 数据上传.html
 	http.HandleFunc("/dataUpload", app.DataUpload)
 
 	fmt.Println("启动Web服务, 监听端口号为: 8088")

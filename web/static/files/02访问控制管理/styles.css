@@ -1486,8 +1486,8 @@
 #u1089 {
   border-width:0px;
   position:absolute;
-  left:529px;
-  top:667px;
+  /* left:529px; */
+  /* top:667px; */
   width:33px;
   height:32px;
   display:flex;
@@ -1702,8 +1702,8 @@
 #u1093 {
   border-width:0px;
   position:absolute;
-  left:519px;
-  top:590px;
+  /* left:519px; */
+  /* top:590px; */
   width:43px;
   height:38px;
   display:flex;
