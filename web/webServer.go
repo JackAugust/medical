@@ -60,8 +60,7 @@ func WebStart(app controller.Application) {
 	// 05-用户信息验证 显示页面为: VerifyUserInfo.html
 	http.HandleFunc("/用户信息验证", app.VerifyUserInfo)
 	// 05-用户信息展示 显示页面为: DisplayUserInfo.html
-	http.HandleFunc("/用户信息展示", app.DisplayUserInfo)
-	
+	// http.HandleFunc("/用户信息展示", app.DisplayUserInfo)
 
 	// 02访问策略生成.html 其实是更新
 	// http.HandleFunc("/访问策略生成", app.UpdatePolicy)
