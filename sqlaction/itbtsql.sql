@@ -6134,3 +6134,17 @@ INSERT INTO `银屑病随访研究变量（随诊变量）` (`_Group`, `_Subject
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+-- ----------------------------
+-- Table structure for credit_table
+-- ----------------------------
+DROP TABLE IF EXISTS `credit_table`;
+CREATE TABLE `credit_table` (
+  `intv0` FLOAT NOT NULL,
+  `intv1` FLOAT NOT NULL,
+  `Credit` FLOAT NOT NULL,
+  `TargetOrg` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
+
+BEGIN;
+INSERT INTO `credit_table` (`intv0`, `intv1`, `Credit`, `TargetOrg`) VALUES (0.5, 0.5, 0.5, '0')

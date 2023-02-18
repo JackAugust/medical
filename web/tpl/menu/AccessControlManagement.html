@@ -142,324 +142,57 @@
         <!-- 医疗数据管理 (组 合) -->
         <div id="u1056" class="ax_default" data-label="医疗数据管理" data-left="490" data-top="568" data-width="1365" data-height="450">
 
-            <!-- Unnamed (表格) -->
-            <div id="u1057" class="ax_default">
 
-                <!-- Unnamed (单元格) -->
-                <div id="u1058" class="ax_default table_cell">
-                    <img id="u1058_img" class="img " src="static/images/02医疗数据管理/u830.png"/>
-                    <div id="u1058_text" class="text ">
-                        <p><span style="text-decoration:none;">全选&nbsp; &nbsp; &nbsp;&nbsp; </span></p>
-                    </div>
-                </div>
+            <table  id="u1057" border="1" cellspacing="0">
+                <tr>
+                    <td >
 
-                <!-- Unnamed (单元格) -->
-                <div id="u1059" class="ax_default table_cell">
-                    <img id="u1059_img" class="img " src="static/images/02访问控制管理/u1059.png"/>
-                    <div id="u1059_text" class="text ">
-                        <p><span style="text-decoration:none;">病例编号</span></p>
-                    </div>
-                </div>
+                        <!-- 全选-单选框 (复选框) -->
+                        <div id="u1093" class="ax_default checkbox" data-label="全选-单选框">
+                            <label id="u1093_input_label" for="u1093_input" style="position: absolute; left: 0px;">
+                                <img id="u1093_img" class="img " src="static/images/02访问控制管理/全选-单选框_u1093.svg"/>
+                                <div id="u1093_text" class="text " style="display:none; visibility: hidden">
+                                    <p></p>
+                                </div>
+                            </label>
+                            <input id="u1093_input" type="checkbox" value="checkbox"/>
+                        </div>
+                        全选
+                    </td>
+                    <td>病例编号</td>
+                    <td>返回索引</td>
+                    <td>默认访问策略</td>
+                    <td>策略信息</td>
+                </tr>
+                {{range .Table}}
+                    <tr>
+                        <td>
 
-                <!-- Unnamed (单元格) -->
-                <div id="u1060" class="ax_default table_cell">
-                    <img id="u1060_img" class="img " src="static/images/02医疗数据管理/u832.png"/>
-                    <div id="u1060_text" class="text ">
-                        <p><span style="text-decoration:none;">对应索引</span></p>
-                    </div>
-                </div>
+                            <!-- 001-单选框 (复选框) -->
+                            <div id="u1089" class="ax_default checkbox" data-label="001-单选框">
+                                <label id="u1089_input_label" for="u1089_input" style="position: absolute; left: 0px;">
+                                    <img id="u1089_img" class="img " src="static/images/02医疗数据管理/001-单选框_u861.svg"/>
+                                    <div id="u1089_text" class="text " style="display:none; visibility: hidden">
+                                        <p></p>
+                                    </div>
+                                </label>
+                                <input id="u1089_input" type="checkbox" value="checkbox"/>
+                            </div>
+                            {{.FirstColumn}}
+                        </td>
+                        <td>{{.SecondColumn}}</td>
+                        <td>{{.ThirdColumn}}</td>
+                        <td>{{.SixthColumn}}</td>
+                        <td>
+                            点击查看
+                        </td>
+                    </tr>
+                {{end}}
+                </table>
 
-                <!-- Unnamed (单元格) -->
-                <div id="u1061" class="ax_default table_cell">
-                    <img id="u1061_img" class="img " src="static/images/02访问控制管理/u1061.png"/>
-                    <div id="u1061_text" class="text ">
-                        <p><span style="text-decoration:none;">默认访问策略</span></p>
-                    </div>
-                </div>
 
-                <!-- Unnamed (单元格) -->
-                <div id="u1062" class="ax_default table_cell">
-                    <img id="u1062_img" class="img " src="static/images/02医疗数据管理/u834.png"/>
-                    <div id="u1062_text" class="text ">
-                        <p><span style="text-decoration:none;">策略信息</span></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1063" class="ax_default table_cell">
-                    <img id="u1063_img" class="img " src="static/images/02医疗数据管理/u830.png"/>
-                    <div id="u1063_text" class="text ">
-                        <p><span style="text-decoration:none;">001</span><span style="text-decoration:none;color:#FFFFFF;">00</span></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1064" class="ax_default table_cell">
-                    <img id="u1064_img" class="img " src="static/images/02访问控制管理/u1059.png"/>
-                    <div id="u1064_text" class="text ">
-                        <p><span style="text-decoration:none;">XSVML0005-258</span></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1065" class="ax_default table_cell">
-                    <img id="u1065_img" class="img " src="static/images/02医疗数据管理/u832.png"/>
-                    <div id="u1065_text" class="text ">
-                        <p><span style="text-decoration:none;">00bb22dd88ee</span></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1066" class="ax_default table_cell">
-                    <img id="u1066_img" class="img " src="static/images/02访问控制管理/u1061.png"/>
-                    <div id="u1066_text" class="text " style="display:none; visibility: hidden">
-                        <p></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1067" class="ax_default table_cell">
-                    <img id="u1067_img" class="img " src="static/images/02医疗数据管理/u834.png"/>
-                    <div id="u1067_text" class="text ">
-                        <p><span style="text-decoration:none;">点击查看</span></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1068" class="ax_default table_cell">
-                    <img id="u1068_img" class="img " src="static/images/02医疗数据管理/u830.png"/>
-                    <div id="u1068_text" class="text ">
-                        <p><span style="text-decoration:none;">002</span><span style="text-decoration:none;color:#FFFFFF;">00</span></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1069" class="ax_default table_cell">
-                    <img id="u1069_img" class="img " src="static/images/02访问控制管理/u1059.png"/>
-                    <div id="u1069_text" class="text ">
-                        <p><span style="text-decoration:none;">XSVML0005-258</span></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1070" class="ax_default table_cell">
-                    <img id="u1070_img" class="img " src="static/images/02医疗数据管理/u832.png"/>
-                    <div id="u1070_text" class="text ">
-                        <p><span style="text-decoration:none;">00bb22dd88ee</span></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1071" class="ax_default table_cell">
-                    <img id="u1071_img" class="img " src="static/images/02访问控制管理/u1061.png"/>
-                    <div id="u1071_text" class="text " style="display:none; visibility: hidden">
-                        <p></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1072" class="ax_default table_cell">
-                    <img id="u1072_img" class="img " src="static/images/02医疗数据管理/u834.png"/>
-                    <div id="u1072_text" class="text ">
-                        <p><span style="text-decoration:none;">点击查看</span></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1073" class="ax_default table_cell">
-                    <img id="u1073_img" class="img " src="static/images/02医疗数据管理/u830.png"/>
-                    <div id="u1073_text" class="text ">
-                        <p><span style="text-decoration:none;">003</span><span style="text-decoration:none;color:#FFFFFF;">00</span></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1074" class="ax_default table_cell">
-                    <img id="u1074_img" class="img " src="static/images/02访问控制管理/u1059.png"/>
-                    <div id="u1074_text" class="text ">
-                        <p><span style="text-decoration:none;">XSVML0005-258</span></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1075" class="ax_default table_cell">
-                    <img id="u1075_img" class="img " src="static/images/02医疗数据管理/u832.png"/>
-                    <div id="u1075_text" class="text ">
-                        <p><span style="text-decoration:none;">00bb22dd88ee</span></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1076" class="ax_default table_cell">
-                    <img id="u1076_img" class="img " src="static/images/02访问控制管理/u1061.png"/>
-                    <div id="u1076_text" class="text " style="display:none; visibility: hidden">
-                        <p></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1077" class="ax_default table_cell">
-                    <img id="u1077_img" class="img " src="static/images/02医疗数据管理/u834.png"/>
-                    <div id="u1077_text" class="text ">
-                        <p><span style="text-decoration:none;">点击查看</span></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1078" class="ax_default table_cell">
-                    <img id="u1078_img" class="img " src="static/images/02医疗数据管理/u830.png"/>
-                    <div id="u1078_text" class="text ">
-                        <p><span style="text-decoration:none;">004</span><span style="text-decoration:none;color:#FFFFFF;">00</span></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1079" class="ax_default table_cell">
-                    <img id="u1079_img" class="img " src="static/images/02访问控制管理/u1059.png"/>
-                    <div id="u1079_text" class="text ">
-                        <p><span style="text-decoration:none;">XSVML0005-258</span></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1080" class="ax_default table_cell">
-                    <img id="u1080_img" class="img " src="static/images/02医疗数据管理/u832.png"/>
-                    <div id="u1080_text" class="text ">
-                        <p><span style="text-decoration:none;">00bb22dd88ee</span></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1081" class="ax_default table_cell">
-                    <img id="u1081_img" class="img " src="static/images/02访问控制管理/u1061.png"/>
-                    <div id="u1081_text" class="text " style="display:none; visibility: hidden">
-                        <p></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1082" class="ax_default table_cell">
-                    <img id="u1082_img" class="img " src="static/images/02医疗数据管理/u834.png"/>
-                    <div id="u1082_text" class="text ">
-                        <p><span style="text-decoration:none;">点击查看</span></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1083" class="ax_default table_cell">
-                    <img id="u1083_img" class="img " src="static/images/02医疗数据管理/u855.png"/>
-                    <div id="u1083_text" class="text ">
-                        <p><span style="text-decoration:none;">005</span><span style="text-decoration:none;color:#FFFFFF;">00</span></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1084" class="ax_default table_cell">
-                    <img id="u1084_img" class="img " src="static/images/02访问控制管理/u1084.png"/>
-                    <div id="u1084_text" class="text ">
-                        <p><span style="text-decoration:none;">XSVML0005-258</span></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1085" class="ax_default table_cell">
-                    <img id="u1085_img" class="img " src="static/images/02医疗数据管理/u857.png"/>
-                    <div id="u1085_text" class="text ">
-                        <p><span style="text-decoration:none;">00bb22dd88ee</span></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1086" class="ax_default table_cell">
-                    <img id="u1086_img" class="img " src="static/images/02访问控制管理/u1086.png"/>
-                    <div id="u1086_text" class="text " style="display:none; visibility: hidden">
-                        <p></p>
-                    </div>
-                </div>
-
-                <!-- Unnamed (单元格) -->
-                <div id="u1087" class="ax_default table_cell">
-                    <img id="u1087_img" class="img " src="static/images/02医疗数据管理/u859.png"/>
-                    <div id="u1087_text" class="text ">
-                        <p><span style="text-decoration:none;">点击查看</span></p>
-                    </div>
-                </div>
-            </div>
         </div>
 
-        <!-- 002-单选框 (复选框) -->
-        <div id="u1088" class="ax_default checkbox" data-label="002-单选框">
-            <label id="u1088_input_label" for="u1088_input" style="position: absolute; left: 0px;">
-                <img id="u1088_img" class="img " src="static/images/02医疗数据管理/002-单选框_u860.svg"/>
-                <div id="u1088_text" class="text " style="display:none; visibility: hidden">
-                    <p></p>
-                </div>
-            </label>
-            <input id="u1088_input" type="checkbox" value="checkbox"/>
-        </div>
-
-        <!-- 001-单选框 (复选框) -->
-        <div id="u1089" class="ax_default checkbox" data-label="001-单选框">
-            <label id="u1089_input_label" for="u1089_input" style="position: absolute; left: 0px;">
-                <img id="u1089_img" class="img " src="static/images/02医疗数据管理/001-单选框_u861.svg"/>
-                <div id="u1089_text" class="text " style="display:none; visibility: hidden">
-                    <p></p>
-                </div>
-            </label>
-            <input id="u1089_input" type="checkbox" value="checkbox"/>
-        </div>
-
-        <!-- 003-单选框 (复选框) -->
-        <div id="u1090" class="ax_default checkbox" data-label="003-单选框">
-            <label id="u1090_input_label" for="u1090_input" style="position: absolute; left: 0px;">
-                <img id="u1090_img" class="img " src="static/images/02医疗数据管理/003-单选框_u862.svg"/>
-                <div id="u1090_text" class="text " style="display:none; visibility: hidden">
-                    <p></p>
-                </div>
-            </label>
-            <input id="u1090_input" type="checkbox" value="checkbox"/>
-        </div>
-
-        <!-- 004-单选框 (复选框) -->
-        <div id="u1091" class="ax_default checkbox" data-label="004-单选框">
-            <label id="u1091_input_label" for="u1091_input" style="position: absolute; left: 0px;">
-                <img id="u1091_img" class="img " src="static/images/02医疗数据管理/004-单选框_u863.svg"/>
-                <div id="u1091_text" class="text " style="display:none; visibility: hidden">
-                    <p></p>
-                </div>
-            </label>
-            <input id="u1091_input" type="checkbox" value="checkbox"/>
-        </div>
-
-        <!-- 005-单选框 (复选框) -->
-        <div id="u1092" class="ax_default checkbox" data-label="005-单选框">
-            <label id="u1092_input_label" for="u1092_input" style="position: absolute; left: 0px;">
-                <img id="u1092_img" class="img " src="static/images/02医疗数据管理/005-单选框_u864.svg"/>
-                <div id="u1092_text" class="text " style="display:none; visibility: hidden">
-                    <p></p>
-                </div>
-            </label>
-            <input id="u1092_input" type="checkbox" value="checkbox"/>
-        </div>
-
-        <!-- 全选-单选框 (复选框) -->
-        <div id="u1093" class="ax_default checkbox" data-label="全选-单选框">
-            <label id="u1093_input_label" for="u1093_input" style="position: absolute; left: 0px;">
-                <img id="u1093_img" class="img " src="static/images/02访问控制管理/全选-单选框_u1093.svg"/>
-                <div id="u1093_text" class="text " style="display:none; visibility: hidden">
-                    <p></p>
-                </div>
-            </label>
-            <input id="u1093_input" type="checkbox" value="checkbox"/>
-        </div>
-    </div>
-
-    <!-- 已生成-001 (形状) -->
-    <div id="u1094" class="ax_default flow_shape" data-label="已生成-001">
-        <img id="u1094_img" class="img " src="static/images/02访问控制管理/已生成-001_u1094.svg"/>
-        <div id="u1094_text" class="text ">
-            <p><span style="text-decoration:none;">已生成</span></p>
-        </div>
     </div>
 
     <!-- 默认访问策略生成 (形状) -->
@@ -475,38 +208,6 @@
         <div id="u1096_div" class=""></div>
         <div id="u1096_text" class="text ">
             <p><span style="text-decoration:none;">现有数据列表</span></p>
-        </div>
-    </div>
-
-    <!-- 已生成-005 (形状) -->
-    <div id="u1097" class="ax_default flow_shape" data-label="已生成-005">
-        <img id="u1097_img" class="img " src="static/images/02访问控制管理/已生成-001_u1094.svg"/>
-        <div id="u1097_text" class="text ">
-            <p><span style="text-decoration:none;">已生成</span></p>
-        </div>
-    </div>
-
-    <!-- 已生成-004 (形状) -->
-    <div id="u1098" class="ax_default flow_shape" data-label="已生成-004">
-        <img id="u1098_img" class="img " src="static/images/02访问控制管理/已生成-001_u1094.svg"/>
-        <div id="u1098_text" class="text ">
-            <p><span style="text-decoration:none;">已生成</span></p>
-        </div>
-    </div>
-
-    <!-- 已生成-003 (形状) -->
-    <div id="u1099" class="ax_default flow_shape" data-label="已生成-003">
-        <img id="u1099_img" class="img " src="static/images/02访问控制管理/已生成-001_u1094.svg"/>
-        <div id="u1099_text" class="text ">
-            <p><span style="text-decoration:none;">已生成</span></p>
-        </div>
-    </div>
-
-    <!-- 已生成-002 (形状) -->
-    <div id="u1100" class="ax_default flow_shape" data-label="已生成-002">
-        <img id="u1100_img" class="img " src="static/images/02访问控制管理/已生成-001_u1094.svg"/>
-        <div id="u1100_text" class="text ">
-            <p><span style="text-decoration:none;">已生成</span></p>
         </div>
     </div>
 

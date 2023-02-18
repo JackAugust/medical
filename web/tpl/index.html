@@ -109,31 +109,62 @@
 
         <!-- 退出系统 (形状) -->
         <div id="u318" class="ax_default primary_button" data-label="退出系统">
-            <img id="u318_img" class="img " src="static/images/04高级搜索界面/退出系统_u184.svg"/>
-            <div id="u318_text" class="text ">
-                <p><span style="text-decoration:none;">退出登录</span></p>
-            </div>
+            <form id="fm0-0" action="/loginout" method="post" autocomplete="off">
+
+                <button type="submit" class="u318_img" style="color:white">退出系统</button>
+                <style type="text/css">
+                    .u318_img {
+                        border-width:0px;
+                        position:absolute;
+                        left:0px;
+                        top:0px;
+                        width:130   px;
+                        height:45px;
+                        background:inherit;
+                        background-color:rgba(22, 155, 213, 1);
+                        border:none;
+                        border-radius:15px;
+                        -moz-box-shadow:none;
+                        -webkit-box-shadow:none;
+                        box-shadow:none;
+                        font-family:'方正楷体简体';
+                        font-weight:400;
+                        font-style:normal;
+                        font-size:22px;
+                    }
+                </style>
+
+            </form>
         </div>
 
         <!-- 用户头像 (组 合) -->
         <div id="u319" class="ax_default" data-label="用户头像" data-left="17" data-top="353" data-width="252" data-height="86">
-
+            <form id="fm0-1" action="/用户信息展示" method="post" autocomplete="off">
             <!-- 用户头像-图片 (图片) -->
             <div id="u320" class="ax_default _图片" data-label="用户头像-图片">
                 <img id="u320_img" class="img " src="static/images/04高级搜索界面/u188.svg"/>
-                <div id="u320_text" class="text " style="display:none; visibility: hidden">
-                    <p></p>
-                </div>
+                    <button type="submit" class="u320_text" style="display:none; visibility: hidden"></button>
+                <style type="text/css">
+                    .u320_text {
+                        border-width:0px;
+                        word-wrap:break-word;
+                        text-transform:none;
+                        visibility:hidden;
+                    }
+                </style>
             </div>
+            </form>
 
             <!-- Unnamed (矩形) -->
             <div id="u321" class="ax_default label">
                 <div id="u321_div" class=""></div>
                 <div id="u321_text" class="text ">
-                    <p><span style="text-decoration:none;">用户001</span></p><p><span style="text-decoration:none;">uid: 0123456</span></p>
+                    <p><span style="text-decoration:none;">{{.CurrentUser.LoginName}}</span></p><p><span style="text-decoration:none;">uid:123456</span></p>
                 </div>
             </div>
+
         </div>
+
     </div>
 
     <!-- 搜索样式 (组 合) -->

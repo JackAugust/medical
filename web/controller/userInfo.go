@@ -12,6 +12,7 @@ type Application struct {
 type User struct {
 	LoginName string
 	Password  string
+	Identity  string
 	//IsAdmin   string
 }
 

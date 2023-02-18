@@ -34,15 +34,18 @@ func (app *Application) Login(w http.ResponseWriter, r *http.Request) {
 	password := r.FormValue("password")
 	fmt.Println("the loginname is ", loginName, " and the password is ", password)
 	result, _ := app.Setup.UserLogin(loginName, password)
-
 	var flag bool
 	flag = result
-	data.CurrentUser = cuser
 	data.Flag = false
-
+	data.CurrentUser.Identity = ""
+	data.CurrentUser.Password = ""
 	if flag {
 		// 登录成功
 		// TODO: 这里路由有问题，改一下。
+
+		// 添加对用户信息的展示 BY Jack 20230218
+		data.CurrentUser.LoginName = loginName
+
 		ShowView(w, r, "index.html", data)
 		// app.Index(w, r)
 	} else {
@@ -112,7 +115,27 @@ func (app *Application) MedicalDataManagement(w http.ResponseWriter, r *http.Req
 
 // 02-访问控制管理 显示页面为: AccessControlManagement.html
 func (app *Application) AccessControlManagement(w http.ResponseWriter, r *http.Request) {
-	ShowView(w, r, "menu/AccessControlManagement.html", nil)
+	fmt.Println("---------------调用AccessControlManagement-----------------")
+	// TODO: 如果用户未登录，则跳转至登陆界面
+	// if cuser.LoginName == "" {
+	// 	ShowView(w, r, "login.html", nil)
+	// 	return
+	// }
+	data.CurrentUser = cuser
+	data.Flag = true
+	data.Msg = ""
+	// tabledata, err := app.Setup.QueryAllMed()
+	tabledata, err := app.Setup.QueryAllMed()
+
+	// tabledata_bytes, _ := json.Marshal(tabledata)
+	// tabledata_str := string(tabledata_bytes)
+	if err != nil {
+		data.Msg = err.Error()
+	} else {
+		// fmt.Println("info is ", tabledata_str)
+		data.Table = tabledata
+	}
+	ShowView(w, r, "menu/AccessControlManagement.html", data)
 }
 
 // 02-数据加密共享 显示页面为: EncryDataShared.html
@@ -195,6 +218,37 @@ func (app *Application) UploadMed(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("上传数据后生成的策略为：", data.Policy)
 	}
 }
+
+// func (app *Application) UpdatePolicy(w http.ResponseWriter, r *http.Request) {
+// 	fmt.Println("---------------调用controllerhandle UpdatePolicy-----------------")
+// 	data.CurrentUser = cuser
+// 	data.Flag = true
+// 	data.Msg = ""
+// 	subjectmark := strconv.FormatInt(time.Now().Unix(), 10)
+// 	datafiles := r.FormValue("datafiles")
+// 	arr := [17]string{subjectmark, datafiles}
+
+// 	fmt.Println("datafiles is ", arr)
+// 	ShowView(w, r, "02医疗数据上传.html", data)
+// 	if arr[1] != "" {
+// 		info, err := app.Setup.UploadMed(arr[:])
+// 		fmt.Println("info is ", info)
+// 		transactionID := strings.Split(info, "-")[0]
+// 		policy := strings.Split(info, "=")[1]
+// 		fmt.Println("policy is ", policy)
+
+// 		if err != nil {
+// 			data.Msg = err.Error()
+// 		} else {
+// 			var p abac.Policy
+// 			err = json.Unmarshal([]byte(policy), &p)
+// 			data.Msg = "信息添加成功:" + transactionID
+// 			data.Policy = p
+// 		}
+// 		app.DataUpload(w, r)
+// 		fmt.Println("上传数据后生成的策略为：", data.Policy)
+// 	}
+// }
 
 // 暂时弃用 By Jack 02-17
 
