@@ -4,9 +4,9 @@
     <title>00注册页面</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
-    <link href="data/styles.css" type="text/css" rel="stylesheet"/>
-    <link href="files/00注册页面/styles.css" type="text/css" rel="stylesheet"/>
+    <link href="static/resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
+    <link href="static/data/styles.css" type="text/css" rel="stylesheet"/>
+    <link href="static/files/00注册页面/styles.css" type="text/css" rel="stylesheet"/>
     <script src="static/resources/scripts/jquery-3.2.1.min.js"></script>
     <script src="static/resources/scripts/axure/axQuery.js"></script>
     <script src="static/resources/scripts/axure/globals.js"></script>
@@ -47,7 +47,7 @@
 </head>
 <body>
 <div id="base" class="">
-
+    <form id="fm1" action="/verify" method="post" autocomplete="off">
     <!-- Unnamed (组 合) -->
     <div id="u15" class="ax_default" data-left="0" data-top="0" data-width="1920" data-height="1080">
 
@@ -207,19 +207,62 @@
 
     <!-- Unnamed (矩形) -->
     <div id="u36" class="ax_default primary_button">
-        <div id="u36_div" class=""></div>
-        <div id="u36_text" class="text ">
-            <p><span style="text-decoration:none;">注册</span></p>
-        </div>
+        <button type="submit" class="u36_div" style="color:white">注册</button>
+        <style type="text/css">
+            .u36_div {
+                border-width:0px;
+                position:absolute;
+                left:0px;
+                top:0px;
+                width:428px;
+                height:62px;
+                background:inherit;
+                background-color:rgba(22, 155, 213, 1);
+                border:none;
+                border-radius:10px;
+                -moz-box-shadow:none;
+                -webkit-box-shadow:none;
+                box-shadow:none;
+                font-family:'方正楷体简体';
+                font-weight:400;
+                font-style:normal;
+                font-size:28px;
+            }
+        </style>
     </div>
-
+        </form>
+    <form id="fm2" action="/addinstitution" method="post" autocomplete="off">
     <!-- Unnamed (矩形) -->
     <div id="u37" class="ax_default link_button">
-        <div id="u37_div" class=""></div>
-        <div id="u37_text" class="text ">
-            <p><span style="text-decoration:none;">暂无机构？</span></p><p><span style="text-decoration:none;">点击添加</span></p>
-        </div>
+        <button type="submit" class="u37_div" style="color:#008dcb"><p>暂无机构？</p><p>点击添加</p></button>
+        <style type="text/css">
+            .u37_div {
+                border-width:0px;
+                position:absolute;
+                left:0px;
+                top:0px;
+                width:84px;
+                height:40px;
+                background:inherit;
+                background-color:rgba(255, 255, 255, 0);
+                border:none;
+                border-radius:0px;
+                -moz-box-shadow:none;
+                -webkit-box-shadow:none;
+                box-shadow:none;
+                font-family:'宋体 常规', '宋体';
+                font-weight:400;
+                font-style:normal;
+                font-size:16px;
+                text-align:left;
+                border-width:0px;
+                white-space:nowrap;
+                text-transform:none;
+            }
+        </style>
+
     </div>
+    </form>
 </div>
 <script src="static/resources/scripts/axure/ios.js"></script>
 </body>

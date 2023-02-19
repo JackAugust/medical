@@ -72,10 +72,28 @@ func (app *Application) Forgotpassword(w http.ResponseWriter, r *http.Request) {
 	ShowView(w, r, "forgotpassword.html", nil)
 }
 
+// 更改密码 Forgotpassword
+func (app *Application) Changepassword(w http.ResponseWriter, r *http.Request) {
+
+	ShowView(w, r, "changepassword.html", nil)
+}
+
 // 注册 Register
 func (app *Application) Register(w http.ResponseWriter, r *http.Request) {
 
 	ShowView(w, r, "register.html", nil)
+}
+
+// 身份验证 Register
+func (app *Application) Verify(w http.ResponseWriter, r *http.Request) {
+
+	ShowView(w, r, "verify.html", nil)
+}
+
+// 添加机构 Register
+func (app *Application) Addinstitution(w http.ResponseWriter, r *http.Request) {
+
+	ShowView(w, r, "addinstitution.html", nil)
 }
 
 /*

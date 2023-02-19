@@ -19,8 +19,14 @@ func WebStart(app controller.Application) {
 	http.HandleFunc("/loginout", app.LoginOut)
 	// 注册
 	http.HandleFunc("/register", app.Register)
+	// 身份验证
+	http.HandleFunc("/verify", app.Verify)
+	// 机构添加
+	http.HandleFunc("/addinstitution", app.Addinstitution)
 	// 忘记密码
 	http.HandleFunc("/forgotpassword", app.Forgotpassword)
+	// 更改密码
+	http.HandleFunc("/changepassword", app.Changepassword)
 	// 主页面
 	http.HandleFunc("/index", app.Index)
 
