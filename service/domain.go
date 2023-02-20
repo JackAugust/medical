@@ -14,6 +14,45 @@ import (
 	"github.com/hyperledger/fabric-sdk-go/pkg/fabsdk"
 )
 
+/*
+//记录当日初始区块和结束区块
+type BlockNum struct {
+	StartBlockNum int
+	EndBlockNum   int
+}
+
+//按照年月日划分节点
+type RecordTree struct {
+	Num   *BlockNum
+	Val   int
+	Sub   []RecordTree
+	Level int
+	Leaf  bool
+}
+
+//按年、月日查询，使用二分查找
+func BinarySearch(arr []RecordTree, target int) int {
+	if len(arr) == 0 {
+		return -1
+	}
+	if arr[0].Leaf {
+		return -1
+	}
+	l, r, m := 0, len(arr), 0
+	for l <= r {
+		m = l + (r-l)/2
+		if arr[m].Val > target {
+			r = m - 1
+		} else if arr[m].Val < target {
+			l = m + 1
+		} else {
+			return m
+		}
+	}
+	return -1
+}
+*/
+
 //写到服务层里面，所有字段用于和数据库对接（服务层调用数据库和链码）
 type MedicalRecord struct {
 	Groups         string `json:"groups"`         //分组
@@ -221,17 +260,72 @@ func InsertDB(DB *sql.DB, data []string, casenumber string) bool {
 
 //根据各种信息生成CaseNumber的函数，暂时没想好怎么写
 func GenerateCaseNumber(data []string) string {
-	//共有6个参数，分别为类型、返回编号、病种、所属人、机构、时间
+	//共有6个参数，分别为机构、类型、Subject、病种、所属人、时间
 	if len(data) != 6 {
 		return ""
 	}
-	final_casenumber := "19260817"
-	return final_casenumber //返回最终生成的CaseNumber
+	final_casenumber := ""
+	//以下为编号的顺序
+	//机构码为4位
+	orgID := "0001" //换算方式另讨论
+	final_casenumber += orgID
+	//操作类型占2位，UploadMedical为00，UpdateMedical为01，DeleteMedical为02，AccessMedical为03
+	m := map[string]string{
+		"UploadMedical": "00",
+		"UpdateMedical": "01",
+		"DeleteMedical": "02",
+		"AccessMedical": "03",
+	}
+	v, flag := m[data[1]]
+	if flag {
+		final_casenumber += v
+	} else {
+		return ""
+	}
+	//Subject为3位
+	subjectID := "001"
+	final_casenumber += subjectID
+	//病种为3位
+	diseaseID := "001"
+	final_casenumber += diseaseID
+	//所属人ID为4位
+	final_casenumber += data[4]
+	//时间为8位，前4位为年、后2位为月、最后2位为日
+	final_casenumber += data[5][:3] + data[5][5:7] + data[5][8:10]
+	return final_casenumber //返回最终生成的CaseNumber，一共为4+2+3+3+4+8=24位
 }
 
-//将与区块链相关的数据先存到数据库中，在GenerateCaseNumber
-func InsertChainBasedDataIntoDB(DB *sql.DB, data []string) bool {
-	return true
+//将与区块链相关的数据先存到数据库中，在GenerateCaseNumber，返回casenumber和操作结果
+func InsertChainBasedDataIntoDB(DB *sql.DB, data []string) (string, bool) {
+	if len(data) != 5 {
+		return "", false
+	}
+	tn := time.Now()
+	d := []string{data[4], data[0], data[1], data[2], data[3], tn.Format("2006-01-02")}
+	case_number := GenerateCaseNumber(d)
+	if len(case_number) != 24 {
+		return "", false
+	}
+	sqlString := "insert into chain_based_data(_CaseNumber,_ActionType,_Subject,_DiseaseType,_PatientNumber,_OrgNumber,_Time) values(?, ?, ?, ?, ?, ?, ?);"
+	r, err0 := DB.Exec(sqlString, case_number, data[0], data[1], data[2], data[3], data[4], tn.Format("2006-01-02 15:04:05"))
+	if err0 != nil {
+		fmt.Println("插入失败：", err0)
+		return "", false
+	}
+	id, err1 := r.LastInsertId()
+	if err1 != nil {
+		fmt.Println("操作失败：", err1)
+		return "", false
+	}
+	fmt.Println("插入成功：", id)
+	//受影响的行数
+	row_affect, err2 := r.RowsAffected()
+	if err2 != nil {
+		fmt.Println("受影响行数获取失败:", err2)
+		return "", false
+	}
+	fmt.Println("受影响的行数：", row_affect)
+	return case_number, true
 }
 
 func GeneratePolicy(DB *sql.DB, casenumber string) string {
