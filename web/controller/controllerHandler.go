@@ -126,14 +126,52 @@ func (app *Application) LocalStorage(w http.ResponseWriter, r *http.Request) {
 	ShowView(w, r, "menu/LocalStorage.html", nil)
 }
 
-// 02-医疗数据管理 显示页面为: MedicalDataManagement.html
-func (app *Application) MedicalDataManagement(w http.ResponseWriter, r *http.Request) {
-	ShowView(w, r, "menu/MedicalDataManagement.html", nil)
+// 02-医疗数据上传 显示页面为:02医疗数据上传.html
+func (app *Application) UploadMed(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("---------------调用controllerhandle UploadMed-----------------")
+	data.CurrentUser = cuser
+	data.Flag = true
+	data.Msg = ""
+	// TODO：这里要用go解析文件然后将文件内容存到数据库中，然后在baseinfo里加一个数据本体，之后按格式插入即可
+	// TODO：这里还没做，暂时先空着
+	// TODO：subject目前由后端生成为当前时间戳
+	subjectmark := strconv.FormatInt(time.Now().Unix(), 10)
+	datafiles := r.FormValue("datafiles")
+	arr := [17]string{subjectmark, datafiles}
+
+	fmt.Println("datafiles is ", arr)
+	ShowView(w, r, "02医疗数据上传.html", data)
+	if arr[1] != "" {
+		info, err := app.Setup.UploadMed(arr[:])
+		fmt.Println("info is ", info)
+		transactionID := strings.Split(info, "-")[0]
+		policy := strings.Split(info, "=")[1]
+		fmt.Println("policy is ", policy)
+
+		if err != nil {
+			data.Msg = err.Error()
+		} else {
+			var p abac.Policy
+			err = json.Unmarshal([]byte(policy), &p)
+			data.Msg = "信息添加成功:" + transactionID
+			data.Policy = p
+		}
+		app.DataUpload(w, r)
+		fmt.Println("上传数据后生成的策略为：", data.Policy)
+	}
 }
 
-// 02-访问控制管理 显示页面为: AccessControlManagement.html
-func (app *Application) AccessControlManagement(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("---------------调用AccessControlManagement-----------------")
+// 02-数据上传 显示页面为:数据上传.html
+func (app *Application) DataUpload(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("进入数据上传页面")
+	data.CurrentUser = cuser
+	fmt.Println("数据为：", data.Msg)
+	ShowView(w, r, "数据上传.html", data)
+}
+
+// 02-医疗数据管理 显示页面为: 02医疗数据管理.html
+func (app *Application) ManageMed(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("---------------调用controllerhandle ManageMed-----------------")
 	// TODO: 如果用户未登录，则跳转至登陆界面
 	// if cuser.LoginName == "" {
 	// 	ShowView(w, r, "login.html", nil)
@@ -153,7 +191,53 @@ func (app *Application) AccessControlManagement(w http.ResponseWriter, r *http.R
 		// fmt.Println("info is ", tabledata_str)
 		data.Table = tabledata
 	}
-	ShowView(w, r, "menu/AccessControlManagement.html", data)
+
+	ShowView(w, r, "02医疗数据管理.html", data)
+}
+
+// 02-访问控制管理 显示页面为: AccessControlManagement.html
+func (app *Application) AccessControlManagement(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("---------------调用AccessControlManagement-----------------")
+	// TODO: 如果用户未登录，则跳转至登陆界面
+	data.CurrentUser = cuser
+	data.Flag = true
+
+	// 获取表格数据
+	tabledata, err := app.Setup.QueryAllMed()
+	if err != nil {
+		data.Msg = err.Error()
+	} else {
+		// fmt.Println("info is ", tabledata_str)
+		data.Table = tabledata
+	}
+
+	dataId := r.FormValue("dataId")
+	dataName := r.FormValue("dataName")
+	fmt.Println("dataId is ", dataId, "and the dataName is ", dataName)
+	if dataId != "" {
+		data.Msg = dataId + "/" + dataName
+		app.UpdatePolicy(w, r)
+	} else {
+		fmt.Println("---------------刷新页面-----------------")
+		ShowView(w, r, "menu/AccessControlManagement.html", data)
+
+	}
+}
+
+// 02-访问策略生成 显示页面为02访问策略生成.html
+func (app *Application) UpdatePolicy(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("---------------调用controllerhandle UpdatePolicy-----------------")
+	data.CurrentUser = cuser
+	data.Flag = true
+	fmt.Println("data.Msg is ", data.Msg)
+	if data.Msg != "" {
+		dataId := strings.Split(strings.Split(data.Msg, "/")[0], ",")
+		dataName := strings.Split(strings.Split(data.Msg, "/")[1], ",")
+		fmt.Println("dataId is ", dataId, "and the dataName is ", dataName)
+	}
+	ShowView(w, r, "02访问策略生成.html", data)
+	fmt.Println("------------02访问策略生成.html--------------------")
+
 }
 
 // 02-数据加密共享 显示页面为: EncryDataShared.html
@@ -203,109 +287,11 @@ func (app *Application) VerifyUserInfo(w http.ResponseWriter, r *http.Request) {
 
 // END
 
-func (app *Application) UploadMed(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("---------------调用controllerhandle UploadMed-----------------")
-	data.CurrentUser = cuser
-	data.Flag = true
-	data.Msg = ""
-	// TODO：这里要用go解析文件然后将文件内容存到数据库中，然后在baseinfo里加一个数据本体，之后按格式插入即可
-	// TODO：这里还没做，暂时先空着
-	// TODO：subject目前由后端生成为当前时间戳
-	subjectmark := strconv.FormatInt(time.Now().Unix(), 10)
-	datafiles := r.FormValue("datafiles")
-	arr := [17]string{subjectmark, datafiles}
-
-	fmt.Println("datafiles is ", arr)
-	ShowView(w, r, "02医疗数据上传.html", data)
-	if arr[1] != "" {
-		info, err := app.Setup.UploadMed(arr[:])
-		fmt.Println("info is ", info)
-		transactionID := strings.Split(info, "-")[0]
-		policy := strings.Split(info, "=")[1]
-		fmt.Println("policy is ", policy)
-
-		if err != nil {
-			data.Msg = err.Error()
-		} else {
-			var p abac.Policy
-			err = json.Unmarshal([]byte(policy), &p)
-			data.Msg = "信息添加成功:" + transactionID
-			data.Policy = p
-		}
-		app.DataUpload(w, r)
-		fmt.Println("上传数据后生成的策略为：", data.Policy)
-	}
-}
-
-// func (app *Application) UpdatePolicy(w http.ResponseWriter, r *http.Request) {
-// 	fmt.Println("---------------调用controllerhandle UpdatePolicy-----------------")
-// 	data.CurrentUser = cuser
-// 	data.Flag = true
-// 	data.Msg = ""
-// 	subjectmark := strconv.FormatInt(time.Now().Unix(), 10)
-// 	datafiles := r.FormValue("datafiles")
-// 	arr := [17]string{subjectmark, datafiles}
-
-// 	fmt.Println("datafiles is ", arr)
-// 	ShowView(w, r, "02医疗数据上传.html", data)
-// 	if arr[1] != "" {
-// 		info, err := app.Setup.UploadMed(arr[:])
-// 		fmt.Println("info is ", info)
-// 		transactionID := strings.Split(info, "-")[0]
-// 		policy := strings.Split(info, "=")[1]
-// 		fmt.Println("policy is ", policy)
-
-// 		if err != nil {
-// 			data.Msg = err.Error()
-// 		} else {
-// 			var p abac.Policy
-// 			err = json.Unmarshal([]byte(policy), &p)
-// 			data.Msg = "信息添加成功:" + transactionID
-// 			data.Policy = p
-// 		}
-// 		app.DataUpload(w, r)
-// 		fmt.Println("上传数据后生成的策略为：", data.Policy)
-// 	}
-// }
-
 // 暂时弃用 By Jack 02-17
-
-// 暂时弃用 By Jack 02-17
-// monk 使用 02-17
-func (app *Application) ManageMed(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("---------------调用controllerhandle ManageMed-----------------")
-	// TODO: 如果用户未登录，则跳转至登陆界面
-	// if cuser.LoginName == "" {
-	// 	ShowView(w, r, "login.html", nil)
-	// 	return
-	// }
-	data.CurrentUser = cuser
-	data.Flag = true
-	data.Msg = ""
-	// tabledata, err := app.Setup.QueryAllMed()
-	tabledata, err := app.Setup.QueryAllMed()
-
-	// tabledata_bytes, _ := json.Marshal(tabledata)
-	// tabledata_str := string(tabledata_bytes)
-	if err != nil {
-		data.Msg = err.Error()
-	} else {
-		// fmt.Println("info is ", tabledata_str)
-		data.Table = tabledata
-	}
-
-	ShowView(w, r, "02医疗数据管理.html", data)
-}
 
 func (app *Application) OperateMed(w http.ResponseWriter, r *http.Request) {
 	data.CurrentUser = cuser
 	ShowView(w, r, "operateMed.html", data)
-}
-func (app *Application) DataUpload(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("进入数据上传页面")
-	data.CurrentUser = cuser
-	fmt.Println("数据为：", data.Msg)
-	ShowView(w, r, "数据上传.html", data)
 }
 
 func (app *Application) MedicalDataTrace(w http.ResponseWriter, r *http.Request) {

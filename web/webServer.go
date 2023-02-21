@@ -69,7 +69,7 @@ func WebStart(app controller.Application) {
 	// http.HandleFunc("/用户信息展示", app.DisplayUserInfo)
 
 	// 02访问策略生成.html 其实是更新
-	// http.HandleFunc("/访问策略生成", app.UpdatePolicy)
+	http.HandleFunc("/访问策略生成", app.UpdatePolicy)
 
 	// 02医疗数据上传.html
 	http.HandleFunc("/uploadMed", app.UploadMed)
