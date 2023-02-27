@@ -142,34 +142,34 @@ func (t *ServiceSetup) OperateMed(args []string) ([]byte, error) {
 	return b, nil
 }
 
-func (t *ServiceSetup) DeleteMed(args []string) (string, error) {
-	if len(args) != 4 {
-		return "", fmt.Errorf("给定的参数个数不符合要求！")
-	}
+func (t *ServiceSetup) DeleteMed(casenumer string) (string, error) {
 	DB := InitDB()
-	// DB := InitDB()
-	casenumer := args[0]
+	// casenumer := args[0]
 	if !CheckAction(DB, casenumer, "d") {
 		return "", fmt.Errorf("权限不足，无法操作")
 	}
-	if !DeleteDB(DB, args) {
+	if !DeleteDB(DB, casenumer) {
 		return "", fmt.Errorf("删除数据不成功！")
 	}
-	eventID := "eventDeleteMed"
-	reg, notifier := regitserEvent(t.Client, t.ChaincodeID, eventID)
-	defer t.Client.UnregisterChaincodeEvent(reg)
-	req := channel.Request{ChaincodeID: t.ChaincodeID, Fcn: "DeleteMedicalRecord", Args: [][]byte{[]byte(args[0]), []byte(args[1]), []byte(args[2]), []byte(args[3]), []byte(eventID)}}
-	respone, err0 := t.Client.Execute(req)
-	if err0 != nil {
-		return "", err0
-	}
+	//涉链部分暂未测试
+	/*
+		eventID := "eventDeleteMed"
+		reg, notifier := regitserEvent(t.Client, t.ChaincodeID, eventID)
+		defer t.Client.UnregisterChaincodeEvent(reg)
+		req := channel.Request{ChaincodeID: t.ChaincodeID, Fcn: "DeleteMedicalRecord", Args: [][]byte{[]byte(casenumer), []byte(eventID)}}
+		respone, err0 := t.Client.Execute(req)
+		if err0 != nil {
+			return "", err0
+		}
 
-	err1 := eventResult(notifier, eventID)
-	fmt.Println(err1)
-	if err1 != nil {
-		return "", err1
-	}
-	return string(respone.TransactionID), nil
+		err1 := eventResult(notifier, eventID)
+		fmt.Println(err1)
+		if err1 != nil {
+			return "", err1
+		}
+		return string(respone.TransactionID), nil
+	*/
+	return "Success", nil
 }
 
 func (t *ServiceSetup) UpdateMed(args []string) (string, error) {
@@ -227,17 +227,26 @@ func (t *ServiceSetup) UserLogin(username string, password string) (bool, error)
 }
 
 func (t *ServiceSetup) UserLoginInfo() (map[int]string, error) {
-	Result := make(map[int]string)
 	DB := InitDB()
+	result := make(map[int]string)
 	var str string
-	SQLString1 := "select usertype from login where state ='1'"
-	err := DB.QueryRow(SQLString1).Scan(&str)
+	SQLString := "select username from login where state ='1'"
+	err := DB.QueryRow(SQLString).Scan(&str)
 	if err != sql.ErrNoRows {
-		// 这里无法获取数据，原因未知,
-		SQLString2 := "select * from user_type where user_id ='" + str + "'"
-		Result = queryDB(DB, SQLString2)
+		result[0] = str
 	}
-	return Result, nil
+	SQLString1 := "select usertype from login where state ='1'"
+	err1 := DB.QueryRow(SQLString1).Scan(&str)
+	if err1 != sql.ErrNoRows {
+		// 这里无法获取数据，原因未知,
+		SQLString2 := "select user_role from user_type where user_id ='" + str + "'"
+		err := DB.QueryRow(SQLString2).Scan(&str)
+		if err != sql.ErrNoRows {
+			result[1] = str
+			return result, nil
+		}
+	}
+	return result, nil
 }
 
 // 获取登录用户信息
@@ -258,7 +267,6 @@ func (t *ServiceSetup) GetLoginUserInfo(username string) map[int]string {
 	}
 	return result
 }
-
 
 func (t *ServiceSetup) UserLoginOut() (bool, error) {
 	DB := InitDB()

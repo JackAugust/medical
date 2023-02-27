@@ -1,22 +1,18 @@
-
 version: 1.0.0
-setpath: /workspace/github.com/medical
+setpath: /opt/gopath/src/github.com/hyperledger/fabric-samples/medical
 #&setpath: /opt/gopath/src/github.com/hyperledger/fabric-samples/medical
 
 client:
-
   organization: org1
 
   logging:
     level: info
 
   cryptoconfig:
-
-#    path: /opt/gopath/src/github.com/hyperledger/fabric-samples/medical/fixtures/crypto-config
-    path: /workspace/github.com/medical/fixtures/crypto-config
+    #    path: /opt/gopath/src/github.com/hyperledger/fabric-samples/medical/fixtures/crypto-config
+    path: /opt/gopath/src/github.com/hyperledger/fabric-samples/medical/fixtures/crypto-config
 
   credentialStore:
-
     path: "/tmp/state-store"
 
     cryptoStore:
@@ -25,12 +21,12 @@ client:
 
   BCCSP:
     security:
-     enabled: true
-     default:
-      provider: "SW"
-     hashAlgorithm: "SHA2"
-     softVerify: true
-     level: 256
+      enabled: true
+      default:
+        provider: "SW"
+      hashAlgorithm: "SHA2"
+      softVerify: true
+      level: 256
 
   tlsCerts:
     # [Optional]. Use system certificate pool when connecting to peers, orderers (for negotiating TLS) Default: false
@@ -39,28 +35,21 @@ client:
     # [Optional]. Client key and cert for TLS handshake with peers and orderers
     client:
       key:
-#        path: /opt/gopath/src/github.com/hyperledger/fabric-samples/medical/fixtures/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/tls/client.key
-        path: /workspace/github.com/medical/fixtures/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/tls/client.key
+        #        path: /opt/gopath/src/github.com/hyperledger/fabric-samples/medical/fixtures/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/tls/client.key
+        path: /opt/gopath/src/github.com/hyperledger/fabric-samples/medical/fixtures/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/tls/client.key
       cert:
-#        path: /opt/gopath/src/github.com/hyperledger/fabric-samples/medical/fixtures/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/tls/client.crt
-        path: /workspace/github.com/medical/fixtures/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/tls/client.crt
-
+        #        path: /opt/gopath/src/github.com/hyperledger/fabric-samples/medical/fixtures/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/tls/client.crt
+        path: /opt/gopath/src/github.com/hyperledger/fabric-samples/medical/fixtures/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/tls/client.crt
 
 channels:
-
-
-
   # multi-org test channel
   mychannel:
-
-
     peers:
       peer0.org1.example.com:
         endorsingPeer: true
         chaincodeQuery: true
         ledgerQuery: true
         eventSource: true
-
 
       peer1.org1.example.com:
         endorsingPeer: true
@@ -85,12 +74,11 @@ organizations:
     mspid: Org1MSP
 
     # This org's MSP store (absolute path or relative to client.cryptoconfig)
-    cryptoPath:  peerOrganizations/org1.example.com/users/{username}@org1.example.com/msp
+    cryptoPath: peerOrganizations/org1.example.com/users/{username}@org1.example.com/msp
 
     peers:
       - peer0.org1.example.com
       - peer1.org1.example.com
-
 
     # [Optional]. Certificate Authorities issue certificates for identification purposes in a Fabric based
     # network. Typically certificates provisioning is done in a separate process outside of the
@@ -98,31 +86,27 @@ organizations:
     # dynamic certificate management (enroll, revoke, re-enroll). The following section is only for
     # Fabric-CA servers.
 
-
   # the profile will contain public information about organizations other than the one it belongs to.
   # These are necessary information to make transaction lifecycles work, including MSP IDs and
   # peers with a public URL to send transaction proposals. The file will not contain private
   # information reserved for members of the organization, such as admin key and certificate,
   # fabric-ca registrar enroll ID and secret, etc.
-#  org1:
-#    mspid: org1MSP
+  #  org1:
+  #    mspid: org1MSP
 
-    # This org's MSP store (absolute path or relative to client.cryptoconfig)
-#    cryptoPath:  peerOrganizations/org1.example.com/users/{username}@org1.example.com/msp
+  # This org's MSP store (absolute path or relative to client.cryptoconfig)
+  #    cryptoPath:  peerOrganizations/org1.example.com/users/{username}@org1.example.com/msp
 
-#    peers:
-#      - peer0.org1.example.com
-
-
+  #    peers:
+  #      - peer0.org1.example.com
 
   # Orderer Org name
   ordererorg:
-      # Membership Service Provider ID for this organization
-      mspID: OrdererMSP
+    # Membership Service Provider ID for this organization
+    mspID: OrdererMSP
 
-      # Needed to load users crypto keys and certs for this org (absolute path or relative to global crypto path, DEV mode)
-      cryptoPath: ordererOrganizations/example.com/users/{username}@example.com/msp
-
+    # Needed to load users crypto keys and certs for this org (absolute path or relative to global crypto path, DEV mode)
+    cryptoPath: ordererOrganizations/example.com/users/{username}@example.com/msp
 
 #
 # List of orderers to send transaction and channel create/update requests to. For the time
@@ -130,8 +114,6 @@ organizations:
 # SDK is implementation specific. Consult each SDK's documentation for its handling of orderers.
 #
 orderers:
-
-
   orderer.example.com:
     # [Optional] Default: Infer from hostname
     url: orderer.example.com:7050
@@ -153,17 +135,14 @@ orderers:
     tlsCACerts:
       # Certificate location absolute path
 
-#      path: /opt/gopath/src/github.com/hyperledger/fabric-samples/medical/fixtures/crypto-config/ordererOrganizations/example.com/tlsca/tlsca.example.com-cert.pem
-      path: /workspace/github.com/medical/fixtures/crypto-config/ordererOrganizations/example.com/tlsca/tlsca.example.com-cert.pem
-
+      #      path: /opt/gopath/src/github.com/hyperledger/fabric-samples/medical/fixtures/crypto-config/ordererOrganizations/example.com/tlsca/tlsca.example.com-cert.pem
+      path: /opt/gopath/src/github.com/hyperledger/fabric-samples/medical/fixtures/crypto-config/ordererOrganizations/example.com/tlsca/tlsca.example.com-cert.pem
 
 #
 # List of peers to send various requests to, including endorsement, query
 # and event listener registration.
 #
 peers:
-
-
   peer0.org1.example.com:
     # this URL is used to send endorsement and query requests
     # [Optional] Default: Infer from hostname
@@ -185,9 +164,8 @@ peers:
     tlsCACerts:
       # Certificate location absolute path
 
-#      path: /opt/gopath/src/github.com/hyperledger/fabric-samples/medical/fixtures/crypto-config/peerOrganizations/org1.example.com/tlsca/tlsca.org1.example.com-cert.pem
-      path: /workspace/github.com/medical/fixtures/crypto-config/peerOrganizations/org1.example.com/tlsca/tlsca.org1.example.com-cert.pem
-
+      #      path: /opt/gopath/src/github.com/hyperledger/fabric-samples/medical/fixtures/crypto-config/peerOrganizations/org1.example.com/tlsca/tlsca.org1.example.com-cert.pem
+      path: /opt/gopath/src/github.com/hyperledger/fabric-samples/medical/fixtures/crypto-config/peerOrganizations/org1.example.com/tlsca/tlsca.org1.example.com-cert.pem
 
   peer1.org1.example.com:
     url: peer1.org1.example.com:9051
@@ -205,11 +183,8 @@ peers:
       # allow-insecure will be taken into consideration if address has no protocol defined, if true then grpc or else grpcs
       allow-insecure: false
     tlsCACerts:
-
-#      path: /opt/gopath/src/github.com/hyperledger/fabric-samples/medical/fixtures/crypto-config/peerOrganizations/org1.example.com/tlsca/tlsca.org1.example.com-cert.pem
-      path: /workspace/github.com/medical/fixtures/crypto-config/peerOrganizations/org1.example.com/tlsca/tlsca.org1.example.com-cert.pem
-
-
+      #      path: /opt/gopath/src/github.com/hyperledger/fabric-samples/medical/fixtures/crypto-config/peerOrganizations/org1.example.com/tlsca/tlsca.org1.example.com-cert.pem
+      path: /opt/gopath/src/github.com/hyperledger/fabric-samples/medical/fixtures/crypto-config/peerOrganizations/org1.example.com/tlsca/tlsca.org1.example.com-cert.pem
 
 #
 # Fabric-CA is a special kind of Certificate Authority provided by Hyperledger Fabric which allows
@@ -218,7 +193,6 @@ peers:
 #
 entityMatchers:
   peer:
-
     - pattern: (\w+).org1.example.com:(\d+)
       urlSubstitutionExp: ${1}.org1.example.com:${2}
       sslTargetOverrideUrlSubstitutionExp: ${1}.org1.example.com

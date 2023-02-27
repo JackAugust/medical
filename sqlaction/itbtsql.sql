@@ -1,7 +1,7 @@
 /*
  Navicat MySQL Data Transfer
 
- Source Server         : 123
+ Source Server         : localhost
  Source Server Type    : MySQL
  Source Server Version : 80031 (8.0.31-0ubuntu0.20.04.1)
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 80031 (8.0.31-0ubuntu0.20.04.1)
  File Encoding         : 65001
 
- Date: 16/02/2023 15:58:23
+ Date: 24/02/2023 10:50:04
 */
 
 SET NAMES utf8mb4;
@@ -140,6 +140,30 @@ CREATE TABLE `connect` (
 -- Records of connect
 -- ----------------------------
 BEGIN;
+COMMIT;
+
+-- ----------------------------
+-- Table structure for credit_table
+-- ----------------------------
+DROP TABLE IF EXISTS `credit_table`;
+CREATE TABLE `credit_table` (
+  `intv0` float NOT NULL,
+  `intv1` float NOT NULL,
+  `Credit` float NOT NULL,
+  `TargetOrg` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
+
+-- ----------------------------
+-- Records of credit_table
+-- ----------------------------
+BEGIN;
+INSERT INTO `credit_table` (`intv0`, `intv1`, `Credit`, `TargetOrg`) VALUES (0.5, 0.5, 0.5, '0');
+INSERT INTO `credit_table` (`intv0`, `intv1`, `Credit`, `TargetOrg`) VALUES (0.5, 0.5, 0.5, '101');
+INSERT INTO `credit_table` (`intv0`, `intv1`, `Credit`, `TargetOrg`) VALUES (0.5, 0.5, 0.5, '102');
+INSERT INTO `credit_table` (`intv0`, `intv1`, `Credit`, `TargetOrg`) VALUES (0.5, 0.5, 0.5, '103');
+INSERT INTO `credit_table` (`intv0`, `intv1`, `Credit`, `TargetOrg`) VALUES (0.5, 0.5, 0.5, '000');
+INSERT INTO `credit_table` (`intv0`, `intv1`, `Credit`, `TargetOrg`) VALUES (0.5, 0.5, 0.5, '201');
+INSERT INTO `credit_table` (`intv0`, `intv1`, `Credit`, `TargetOrg`) VALUES (0.5, 0.5, 0.5, '301');
 COMMIT;
 
 -- ----------------------------
@@ -6134,17 +6158,3 @@ INSERT INTO `银屑病随访研究变量（随诊变量）` (`_Group`, `_Subject
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
-
--- ----------------------------
--- Table structure for credit_table
--- ----------------------------
-DROP TABLE IF EXISTS `credit_table`;
-CREATE TABLE `credit_table` (
-  `intv0` FLOAT NOT NULL,
-  `intv1` FLOAT NOT NULL,
-  `Credit` FLOAT NOT NULL,
-  `TargetOrg` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
-
-BEGIN;
-INSERT INTO `credit_table` (`intv0`, `intv1`, `Credit`, `TargetOrg`) VALUES (0.5, 0.5, 0.5, '0')

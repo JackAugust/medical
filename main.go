@@ -2,17 +2,17 @@ package main
 
 import (
 	"fmt"
-	"os"
-
-	// "medical/sdkInit"
 	"medical/sdkInit"
 	"medical/service"
 	"medical/web"
 	"medical/web/controller"
-	// "medical/web"
-	// "medical/web/controller"
-	// "os"
+	"os"
 )
+
+// "medical/sdkInit"
+// "medical/web"
+// "medical/web/controller"
+// "os"
 
 const (
 	cc_name    = "simplecc"
@@ -21,16 +21,9 @@ const (
 
 var SetPath string
 
-// func main() {
-// 	tabledata, _ := service.QueryAllMed()
-// 	tabledata_bytes, _ := json.Marshal(tabledata)
-// 	tabledata_str := string(tabledata_bytes)
-// 	fmt.Println("tabledata_str is ", tabledata_str)
-// }
-
 func main() {
-	SetPath = "/workspace/github.com/medical/"
-	//SetPath = "/opt/gopath/src/github.com/hyperledger/fabric-samples/medical/"
+	// SetPath = "/workspace/github.com/medical/"
+	SetPath = "/opt/gopath/src/github.com/hyperledger/fabric-samples/medical/"
 	// SetPath = "/Users/monk/code/go/src/medical/"
 	// init orgs information
 	orgs := []*sdkInit.OrgInfo{
@@ -100,3 +93,26 @@ func main() {
 	}
 	web.WebStart(app)
 }
+
+// func main() {
+
+// 	// 读文件内容
+// 	// fileContent, _ := file.Open()
+// 	file, err := os.Open("/home/monk/test.csv")
+// 	if err != nil {
+// 		panic(err)
+// 	}
+// 	//func (f *File) Close() error {}
+// 	defer file.Close()
+// 	//func ReadAll(r io.Reader) ([]byte, error) {}
+// 	r1 := csv.NewReader(file)
+// 	content, err := r1.ReadAll()
+// 	if err != nil {
+// 		log.Fatalf("can not readall, err is %+v", err)
+// 	}
+// 	for _, row := range content[1:][:] {
+// 		fmt.Println(row)
+// 			// info, err := app.Setup.UploadMed(arr[:])
+
+// 	}
+// }

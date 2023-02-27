@@ -15,9 +15,7 @@ cd medical && go mod tidy
 ### 2.运行项目：
 ```
 第一步：chmod +x clean_docker.sh；或者进入该文件夹的父目录输入chmod +x medical -R，再重新进入medical文件夹
-第二步（模板为clean_docker.sh）：
-1、若为Linux系统，则运行：./clean_docker_linux.sh
-2、若为其他系统，（请补充）
+第二步：./clean_docker.sh
 ```
 ### 3.在`localhost:8088`登录系统
 
@@ -202,9 +200,7 @@ cd /opt/GoLand-2021.3.3/bin/
 #### 虚拟机1-Ubuntu20.04 -- END
 ## 虚拟机2-Ubuntu22.04
 
-网盘链接：[https://www.123pan.com/s/q9USVv-5k3l](https://www.123pan.com/s/q9USVv-5k3l)
-
-提取码：tPRp
+网盘链接：[https://tjueducn-my.sharepoint.com/:u:/g/personal/playwork001_tju_edu_cn/EUlSL5WgafFFp--JjuiQweQBRYW142kTTtH5rV1_wpW9Sw?e=2JHK5V](https://tjueducn-my.sharepoint.com/:u:/g/personal/playwork001_tju_edu_cn/EUlSL5WgafFFp--JjuiQweQBRYW142kTTtH5rV1_wpW9Sw?e=2JHK5V)
 
 登录名 `ExcitedFrog`，密码与root：`19660813`
 

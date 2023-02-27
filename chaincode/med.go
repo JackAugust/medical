@@ -193,14 +193,14 @@ func (t *SmartContract) AccessMedicalRecord(stub shim.ChaincodeStubInterface, ar
 
 // 删除医疗记录
 func (t *SmartContract) DeleteMedicalRecord(stub shim.ChaincodeStubInterface, args []string) peer.Response {
-	if len(args) != 5 {
+	if len(args) != 2 {
 		return shim.Error("给定的参数个数不符合要求！")
 	}
-	err0 := stub.DelState(args[3])
+	err0 := stub.DelState(args[0])
 	if err0 != nil {
 		return shim.Error("医疗记录删除失败！")
 	}
-	err1 := stub.SetEvent(args[4], []byte{})
+	err1 := stub.SetEvent(args[1], []byte{})
 	if err1 != nil {
 		return shim.Error(err1.Error())
 	}

@@ -436,30 +436,61 @@
 
         <!-- 退出系统 (形状) -->
         <div id="u876" class="ax_default primary_button" data-label="退出系统">
-            <img id="u876_img" class="img " src="static/images/04高级搜索界面/退出系统_u184.svg"/>
-            <div id="u876_text" class="text ">
-                <p><span style="text-decoration:none;">退出登录</span></p>
-            </div>
+            <form id="fm0-0" action="/loginout" method="post" autocomplete="off">
+                <button type="submit" class="u318_img" style="color:white">退出登录</button>
+                <style type="text/css">
+                    .u318_img {
+                        border-width:0px;
+                        position:absolute;
+                        left:0px;
+                        top:0px;
+                        width:130px;
+                        height:45px;
+                        background:inherit;
+                        background-color:rgba(22, 155, 213, 1);
+                        border:none;
+                        border-radius:15px;
+                        -moz-box-shadow:none;
+                        -webkit-box-shadow:none;
+                        box-shadow:none;
+                        font-family:'方正楷体简体';
+                        font-weight:400;
+                        font-style:normal;
+                        font-size:22px;
+                    }
+                </style>
+
+            </form>
         </div>
 
         <!-- 用户头像 (组 合) -->
         <div id="u877" class="ax_default" data-label="用户头像" data-left="17" data-top="353" data-width="252" data-height="86">
-
+            <form id="fm0-1" action="/用户信息展示" method="post" autocomplete="off">
             <!-- 用户头像-图片 (图片) -->
             <div id="u878" class="ax_default _图片" data-label="用户头像-图片">
-                <img id="u878_img" class="img " src="static/images/04高级搜索界面/u188.svg"/>
-                <div id="u878_text" class="text " style="display:none; visibility: hidden">
-                    <p></p>
-                </div>
+                <button type="submit"  class="u878_img" >
+                    <style type="text/css">
+                        .u878_img {
+                            border-width:0px;
+                            position:absolute;
+                            left:0px;
+                            top:0px;
+                            width:89px;
+                            height:86px;
+                        }
+                    </style>
+                    <img src="static/images/04高级搜索界面/u188.svg"/>
+                </button>
             </div>
 
             <!-- Unnamed (矩形) -->
             <div id="u879" class="ax_default label">
                 <div id="u879_div" class=""></div>
                 <div id="u879_text" class="text ">
-                    <p><span style="text-decoration:none;">用户001</span></p><p><span style="text-decoration:none;">uid: 0123456</span></p>
+                    <p><span style="text-decoration:none;">{{.CurrentUser.LoginName}}</span></p><p><span style="text-decoration:none;">角色: {{.CurrentUser.Identity}}</span></p>
                 </div>
             </div>
+            </form>
         </div>
     </div>
 
@@ -474,9 +505,10 @@
             </div>
         </div>
 
-        <!-- 未认证 (图片) -->
+        <!-- 未认证 (图片) src="static/images/01主页面/未认证_u385.png"-->
+        <!-- 已认证 (图片) src="static/images/01主页面/u311.png"-->
         <div id="u882" class="ax_default _图片" data-label="未认证">
-            <img id="u882_img" class="img " src="static/images/01主页面/未认证_u385.png"/>
+            <img id="u882_img" class="img " src="static/images/01主页面/u311.png"/>
             <div id="u882_text" class="text " style="display:none; visibility: hidden">
                 <p></p>
             </div>
@@ -574,16 +606,48 @@
         <div id="u895" class="ax_default ax_default_hidden" data-label="0-子菜单-下拉菜单" style="display:none; visibility: hidden">
             <div id="u895_state0" class="panel_state" data-label="State1" style="">
                 <div id="u895_state0_content" class="panel_state_content">
-
+                    <form id="fm01-1" action="/队列信息展示" method="post" autocomplete="off">
                     <!-- 0-子菜单- 队列信息展示 (组 合) -->
                     <div id="u896" class="ax_default" data-label="0-子菜单- 队列信息展示" selectiongroup="0-菜单-下拉菜单" data-left="0" data-top="0" data-width="268" data-height="54">
 
                         <!-- 0-首页- 队列信息展示 (矩形) -->
                         <div id="u897" class="ax_default box_1" data-label="0-首页- 队列信息展示">
-                            <div id="u897_div" class=""></div>
-                            <div id="u897_text" class="text ">
-                                <p><span style="text-decoration:none;">&nbsp;&nbsp; &nbsp; 队列信息展示</span></p>
-                            </div>
+                            <button type="submit" class="u897_div">&nbsp;&nbsp; &nbsp; 队列信息展示</button>
+                            <style type="text/css">
+                                .u897_div {
+                                    border-width:0px;
+                                    position:absolute;
+                                    left:0px;
+                                    top:0px;
+                                    width:268px;
+                                    height:54px;
+                                    background:inherit;
+                                    background-color:rgba(255, 255, 255, 0.23921568627451);
+                                    box-sizing:border-box;
+                                    border-width:1px;
+                                    border-style:solid;
+                                    border-color:rgba(121, 121, 121, 1);
+                                    border-left:0px;
+                                    border-top:0px;
+                                    border-right:0px;
+                                    border-bottom:0px;
+                                    border-radius:0px;
+                                    border-top-left-radius:0px;
+                                    border-top-right-radius:0px;
+                                    border-bottom-right-radius:0px;
+                                    border-bottom-left-radius:0px;
+                                    -moz-box-shadow:none;
+                                    -webkit-box-shadow:none;
+                                    box-shadow:none;
+                                    font-family:'方正楷体简体 Regular', '方正楷体简体';
+                                    font-weight:400;
+                                    font-style:normal;
+                                    font-size:30px;
+                                    color:rgba(64, 64, 64, 0.831372549019608);
+                                    text-align:left;
+                                }
+                            </style>
+
                         </div>
 
                         <!-- 0-箭头- 队列信息展示 (形状) -->
@@ -594,16 +658,49 @@
                             </div>
                         </div>
                     </div>
-
+                    </form>
+                    <form id="fm01-2" action="/区块信息展示" method="post" autocomplete="off">
                     <!-- 0-子菜单-区块信息展示 (组 合) -->
                     <div id="u899" class="ax_default" data-label="0-子菜单-区块信息展示" selectiongroup="0-菜单-下拉菜单" data-left="0" data-top="54" data-width="268" data-height="54">
 
                         <!-- 0-首页- 区块信息展示 (矩形) -->
                         <div id="u900" class="ax_default box_1" data-label="0-首页- 区块信息展示">
-                            <div id="u900_div" class=""></div>
-                            <div id="u900_text" class="text ">
-                                <p><span style="text-decoration:none;">&nbsp;&nbsp; &nbsp; 区块信息展示</span></p>
-                            </div>
+                            <button type="submit" class="u900_div">&nbsp;&nbsp; &nbsp; 区块信息展示</button>
+                            <style type="text/css">
+                                .u900_div {
+                                    border-width:0px;
+                                    position:absolute;
+                                    left:0px;
+                                    top:0px;
+                                    width:268px;
+                                    height:54px;
+                                    background:inherit;
+                                    background-color:rgba(255, 255, 255, 0.23921568627451);
+                                    box-sizing:border-box;
+                                    border-width:1px;
+                                    border-style:solid;
+                                    border-color:rgba(121, 121, 121, 1);
+                                    border-left:0px;
+                                    border-top:0px;
+                                    border-right:0px;
+                                    border-bottom:0px;
+                                    border-radius:0px;
+                                    border-top-left-radius:0px;
+                                    border-top-right-radius:0px;
+                                    border-bottom-right-radius:0px;
+                                    border-bottom-left-radius:0px;
+                                    -moz-box-shadow:none;
+                                    -webkit-box-shadow:none;
+                                    box-shadow:none;
+                                    font-family:'方正楷体简体 Regular', '方正楷体简体';
+                                    font-weight:400;
+                                    font-style:normal;
+                                    font-size:30px;
+                                    color:rgba(64, 64, 64, 0.831372549019608);
+                                    text-align:left;
+                                }
+                            </style>
+
                         </div>
 
                         <!-- 0-箭头- 区块信息展示 (形状) -->
@@ -614,16 +711,49 @@
                             </div>
                         </div>
                     </div>
-
+                    </form>
+                    <form id="fm01-3" action="/本地存储详情" method="post" autocomplete="off">
                     <!-- 0-子菜单-本地存储展示 (组 合) -->
                     <div id="u902" class="ax_default" data-label="0-子菜单-本地存储展示" selectiongroup="0-菜单-下拉菜单" data-left="0" data-top="108" data-width="268" data-height="54">
 
                         <!-- 0-首页- 本地存储详情 (矩形) -->
                         <div id="u903" class="ax_default box_1" data-label="0-首页- 本地存储详情">
-                            <div id="u903_div" class=""></div>
-                            <div id="u903_text" class="text ">
-                                <p><span style="text-decoration:none;">&nbsp;&nbsp; &nbsp; 本地存储详情</span></p>
-                            </div>
+                            <button type="submit" class="u677_div">&nbsp;&nbsp; &nbsp; 本地存储详情</button>
+                            <style type="text/css">
+                                .u903_div {
+                                    border-width:0px;
+                                    position:absolute;
+                                    left:0px;
+                                    top:0px;
+                                    width:268px;
+                                    height:54px;
+                                    background:inherit;
+                                    background-color:rgba(255, 255, 255, 0.23921568627451);
+                                    box-sizing:border-box;
+                                    border-width:1px;
+                                    border-style:solid;
+                                    border-color:rgba(121, 121, 121, 1);
+                                    border-left:0px;
+                                    border-top:0px;
+                                    border-right:0px;
+                                    border-bottom:0px;
+                                    border-radius:0px;
+                                    border-top-left-radius:0px;
+                                    border-top-right-radius:0px;
+                                    border-bottom-right-radius:0px;
+                                    border-bottom-left-radius:0px;
+                                    -moz-box-shadow:none;
+                                    -webkit-box-shadow:none;
+                                    box-shadow:none;
+                                    font-family:'方正楷体简体 Regular', '方正楷体简体';
+                                    font-weight:400;
+                                    font-style:normal;
+                                    font-size:30px;
+                                    color:rgba(64, 64, 64, 0.831372549019608);
+                                    text-align:left;
+                                }
+                            </style>
+
                         </div>
 
                         <!-- 0-箭头- 本地存储详情 (形状) -->
@@ -634,6 +764,7 @@
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -650,16 +781,48 @@
         <div id="u906" class="ax_default ax_default_hidden" data-label="3-子菜单-下拉菜单" style="display:none; visibility: hidden">
             <div id="u906_state0" class="panel_state" data-label="State1" style="">
                 <div id="u906_state0_content" class="panel_state_content">
-
+                    <form id="fm02-1" action="/医疗数据管理" method="post" autocomplete="off">
                     <!-- 3-子菜单- 医疗数据管理 (组 合) -->
                     <div id="u907" class="ax_default" data-label="3-子菜单- 医疗数据管理" selectiongroup="0-菜单-下拉菜单" data-left="0" data-top="0" data-width="268" data-height="54">
 
                         <!-- 3-首页- 医疗数据管理 (矩形) -->
                         <div id="u908" class="ax_default box_1" data-label="3-首页- 医疗数据管理">
-                            <div id="u908_div" class=""></div>
-                            <div id="u908_text" class="text ">
-                                <p><span style="text-decoration:none;">&nbsp;&nbsp; &nbsp; 医疗数据管理</span></p>
-                            </div>
+                            <button type="submit" class="u908_div">&nbsp;&nbsp; &nbsp; 医疗数据管理</button>
+                            <style type="text/css">
+                                .u908_div {
+                                    border-width:0px;
+                                    position:absolute;
+                                    left:0px;
+                                    top:0px;
+                                    width:268px;
+                                    height:54px;
+                                    background:inherit;
+                                    background-color:rgba(255, 255, 255, 0.23921568627451);
+                                    box-sizing:border-box;
+                                    border-width:1px;
+                                    border-style:solid;
+                                    border-color:rgba(121, 121, 121, 1);
+                                    border-left:0px;
+                                    border-top:0px;
+                                    border-right:0px;
+                                    border-bottom:0px;
+                                    border-radius:0px;
+                                    border-top-left-radius:0px;
+                                    border-top-right-radius:0px;
+                                    border-bottom-right-radius:0px;
+                                    border-bottom-left-radius:0px;
+                                    -moz-box-shadow:none;
+                                    -webkit-box-shadow:none;
+                                    box-shadow:none;
+                                    font-family:'方正楷体简体 Regular', '方正楷体简体';
+                                    font-weight:400;
+                                    font-style:normal;
+                                    font-size:30px;
+                                    color:rgba(64, 64, 64, 0.831372549019608);
+                                    text-align:left;
+                                }
+                            </style>
+
                         </div>
 
                         <!-- 3-箭头- 医疗数据管理 (形状) -->
@@ -670,16 +833,49 @@
                             </div>
                         </div>
                     </div>
-
+                    </form>
+                    <form id="fm02-2" action="/访问控制管理" method="post" autocomplete="off">
                     <!-- 3-子菜单- 访问控制管理 (组 合) -->
                     <div id="u910" class="ax_default" data-label="3-子菜单- 访问控制管理" selectiongroup="0-菜单-下拉菜单" data-left="0" data-top="54" data-width="268" data-height="54">
 
                         <!-- 3-首页- 访问控制管理 (矩形) -->
                         <div id="u911" class="ax_default box_1" data-label="3-首页- 访问控制管理">
-                            <div id="u911_div" class=""></div>
-                            <div id="u911_text" class="text ">
-                                <p><span style="text-decoration:none;">&nbsp;&nbsp; &nbsp; 访问控制管理</span></p>
-                            </div>
+                            <button type="submit" class="u685_div">&nbsp;&nbsp; &nbsp; 访问控制管理</button>
+                            <style type="text/css">
+                                .u685_div {
+                                    border-width:0px;
+                                    position:absolute;
+                                    left:0px;
+                                    top:0px;
+                                    width:268px;
+                                    height:54px;
+                                    background:inherit;
+                                    background-color:rgba(255, 255, 255, 0.23921568627451);
+                                    box-sizing:border-box;
+                                    border-width:1px;
+                                    border-style:solid;
+                                    border-color:rgba(121, 121, 121, 1);
+                                    border-left:0px;
+                                    border-top:0px;
+                                    border-right:0px;
+                                    border-bottom:0px;
+                                    border-radius:0px;
+                                    border-top-left-radius:0px;
+                                    border-top-right-radius:0px;
+                                    border-bottom-right-radius:0px;
+                                    border-bottom-left-radius:0px;
+                                    -moz-box-shadow:none;
+                                    -webkit-box-shadow:none;
+                                    box-shadow:none;
+                                    font-family:'方正楷体简体 Regular', '方正楷体简体';
+                                    font-weight:400;
+                                    font-style:normal;
+                                    font-size:30px;
+                                    color:rgba(64, 64, 64, 0.831372549019608);
+                                    text-align:left;
+                                }
+                            </style>
+
                         </div>
 
                         <!-- 3-箭头- 访问控制管理 (形状) -->
@@ -690,16 +886,49 @@
                             </div>
                         </div>
                     </div>
-
+                    </form>
+                    <form id="fm02-3" action="/数据加密共享" method="post" autocomplete="off">
                     <!-- 3-子菜单- 数据加密共享 (组 合) -->
                     <div id="u913" class="ax_default" data-label="3-子菜单- 数据加密共享" selectiongroup="0-菜单-下拉菜单" data-left="0" data-top="108" data-width="268" data-height="54">
 
                         <!-- 3-首页- 数据加密共享 (矩形) -->
                         <div id="u914" class="ax_default box_1" data-label="3-首页- 数据加密共享">
-                            <div id="u914_div" class=""></div>
-                            <div id="u914_text" class="text ">
-                                <p><span style="text-decoration:none;">&nbsp;&nbsp; &nbsp; 数据加密共享</span></p>
-                            </div>
+                            <button type="submit" class="u914_div">&nbsp;&nbsp; &nbsp; 数据加密共享</button>
+                            <style type="text/css">
+                                .u914_div {
+                                    border-width:0px;
+                                    position:absolute;
+                                    left:0px;
+                                    top:0px;
+                                    width:268px;
+                                    height:54px;
+                                    background:inherit;
+                                    background-color:rgba(255, 255, 255, 0.23921568627451);
+                                    box-sizing:border-box;
+                                    border-width:1px;
+                                    border-style:solid;
+                                    border-color:rgba(121, 121, 121, 1);
+                                    border-left:0px;
+                                    border-top:0px;
+                                    border-right:0px;
+                                    border-bottom:0px;
+                                    border-radius:0px;
+                                    border-top-left-radius:0px;
+                                    border-top-right-radius:0px;
+                                    border-bottom-right-radius:0px;
+                                    border-bottom-left-radius:0px;
+                                    -moz-box-shadow:none;
+                                    -webkit-box-shadow:none;
+                                    box-shadow:none;
+                                    font-family:'方正楷体简体 Regular', '方正楷体简体';
+                                    font-weight:400;
+                                    font-style:normal;
+                                    font-size:30px;
+                                    color:rgba(64, 64, 64, 0.831372549019608);
+                                    text-align:left;
+                                }
+                            </style>
+
                         </div>
 
                         <!-- 3-箭头- 数据加密共享 (形状) -->
@@ -710,6 +939,7 @@
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -729,13 +959,45 @@
 
                     <!-- 1-子菜单- 医疗数据溯源 (组 合) -->
                     <div id="u918" class="ax_default" data-label="1-子菜单- 医疗数据溯源" selectiongroup="0-菜单-下拉菜单" data-left="0" data-top="0" data-width="268" data-height="54">
-
+                        <form id="fm03-1" action="/医疗数据溯源" method="post" autocomplete="off">
                         <!-- 1-首页- 医疗数据溯源 (矩形) -->
                         <div id="u919" class="ax_default box_1" data-label="1-首页- 医疗数据溯源">
-                            <div id="u919_div" class=""></div>
-                            <div id="u919_text" class="text ">
-                                <p><span style="text-decoration:none;">&nbsp;&nbsp; &nbsp; 医疗数据溯源</span></p>
-                            </div>
+                            <button type="submit" class="u919_div">&nbsp;&nbsp; &nbsp; 医疗数据溯源</button>
+                            <style type="text/css">
+                                .u919_div {
+                                    border-width:0px;
+                                    position:absolute;
+                                    left:0px;
+                                    top:0px;
+                                    width:268px;
+                                    height:54px;
+                                    background:inherit;
+                                    background-color:rgba(255, 255, 255, 0.23921568627451);
+                                    box-sizing:border-box;
+                                    border-width:1px;
+                                    border-style:solid;
+                                    border-color:rgba(121, 121, 121, 1);
+                                    border-left:0px;
+                                    border-top:0px;
+                                    border-right:0px;
+                                    border-bottom:0px;
+                                    border-radius:0px;
+                                    border-top-left-radius:0px;
+                                    border-top-right-radius:0px;
+                                    border-bottom-right-radius:0px;
+                                    border-bottom-left-radius:0px;
+                                    -moz-box-shadow:none;
+                                    -webkit-box-shadow:none;
+                                    box-shadow:none;
+                                    font-family:'方正楷体简体 Regular', '方正楷体简体';
+                                    font-weight:400;
+                                    font-style:normal;
+                                    font-size:30px;
+                                    color:rgba(64, 64, 64, 0.831372549019608);
+                                    text-align:left;
+                                }
+                            </style>
+
                         </div>
 
                         <!-- 1-箭头- 医疗数据溯源 (形状) -->
@@ -746,16 +1008,49 @@
                             </div>
                         </div>
                     </div>
-
+                    </form>
+                    <form id="fm03-2" action="/医疗数据审计" method="post" autocomplete="off">
                     <!-- 1-子菜单- 医疗数据审计 (组 合) -->
                     <div id="u921" class="ax_default" data-label="1-子菜单- 医疗数据审计" selectiongroup="0-菜单-下拉菜单" data-left="0" data-top="54" data-width="268" data-height="54">
 
                         <!-- 1-首页- 医疗数据审计 (矩形) -->
                         <div id="u922" class="ax_default box_1" data-label="1-首页- 医疗数据审计">
-                            <div id="u922_div" class=""></div>
-                            <div id="u922_text" class="text ">
-                                <p><span style="text-decoration:none;">&nbsp;&nbsp; &nbsp; 医疗数据审计</span></p>
-                            </div>
+                            <button type="submit" class="u922_div">&nbsp;&nbsp; &nbsp; 医疗数据审计</button>
+                            <style type="text/css">
+                                .u922_div {
+                                    border-width:0px;
+                                    position:absolute;
+                                    left:0px;
+                                    top:0px;
+                                    width:268px;
+                                    height:54px;
+                                    background:inherit;
+                                    background-color:rgba(255, 255, 255, 0.23921568627451);
+                                    box-sizing:border-box;
+                                    border-width:1px;
+                                    border-style:solid;
+                                    border-color:rgba(121, 121, 121, 1);
+                                    border-left:0px;
+                                    border-top:0px;
+                                    border-right:0px;
+                                    border-bottom:0px;
+                                    border-radius:0px;
+                                    border-top-left-radius:0px;
+                                    border-top-right-radius:0px;
+                                    border-bottom-right-radius:0px;
+                                    border-bottom-left-radius:0px;
+                                    -moz-box-shadow:none;
+                                    -webkit-box-shadow:none;
+                                    box-shadow:none;
+                                    font-family:'方正楷体简体 Regular', '方正楷体简体';
+                                    font-weight:400;
+                                    font-style:normal;
+                                    font-size:30px;
+                                    color:rgba(64, 64, 64, 0.831372549019608);
+                                    text-align:left;
+                                }
+                            </style>
+
                         </div>
 
                         <!-- 1-箭头- 医疗数据审计 (形状) -->
@@ -766,6 +1061,7 @@
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -782,16 +1078,48 @@
         <div id="u925" class="ax_default ax_default_hidden" data-label="2-子菜单-下拉菜单" style="display:none; visibility: hidden">
             <div id="u925_state0" class="panel_state" data-label="State1" style="">
                 <div id="u925_state0_content" class="panel_state_content">
-
+                    <form id="fm04-1" action="/搜索结果展示" method="post" autocomplete="off">
                     <!-- 2-子菜单- 搜索结果展示 (组 合) -->
                     <div id="u926" class="ax_default" data-label="2-子菜单- 搜索结果展示" selectiongroup="0-菜单-下拉菜单" data-left="0" data-top="0" data-width="268" data-height="54">
 
                         <!-- 2-首页- 搜索结果展示 (矩形) -->
                         <div id="u927" class="ax_default box_1" data-label="2-首页- 搜索结果展示">
-                            <div id="u927_div" class=""></div>
-                            <div id="u927_text" class="text ">
-                                <p><span style="text-decoration:none;">&nbsp;&nbsp; &nbsp; 搜索结果展示</span></p>
-                            </div>
+                            <button type="submit" class="u927_div">&nbsp;&nbsp; &nbsp; 搜索结果展示</button>
+                            <style type="text/css">
+                                .u927_div {
+                                    border-width:0px;
+                                    position:absolute;
+                                    left:0px;
+                                    top:0px;
+                                    width:268px;
+                                    height:54px;
+                                    background:inherit;
+                                    background-color:rgba(255, 255, 255, 0.23921568627451);
+                                    box-sizing:border-box;
+                                    border-width:1px;
+                                    border-style:solid;
+                                    border-color:rgba(121, 121, 121, 1);
+                                    border-left:0px;
+                                    border-top:0px;
+                                    border-right:0px;
+                                    border-bottom:0px;
+                                    border-radius:0px;
+                                    border-top-left-radius:0px;
+                                    border-top-right-radius:0px;
+                                    border-bottom-right-radius:0px;
+                                    border-bottom-left-radius:0px;
+                                    -moz-box-shadow:none;
+                                    -webkit-box-shadow:none;
+                                    box-shadow:none;
+                                    font-family:'方正楷体简体 Regular', '方正楷体简体';
+                                    font-weight:400;
+                                    font-style:normal;
+                                    font-size:30px;
+                                    color:rgba(64, 64, 64, 0.831372549019608);
+                                    text-align:left;
+                                }
+                            </style>
+
                         </div>
 
                         <!-- 2-箭头- 搜索结果展示 (形状) -->
@@ -802,16 +1130,49 @@
                             </div>
                         </div>
                     </div>
-
+                    </form>
+                    <form id="fm04-2" action="/访问记录展示" method="post" autocomplete="off">
                     <!-- 2-子菜单- 访问记录展示 (组 合) -->
                     <div id="u929" class="ax_default" data-label="2-子菜单- 访问记录展示" selectiongroup="0-菜单-下拉菜单" data-left="0" data-top="54" data-width="268" data-height="54">
 
                         <!-- 2-首页- 访问记录展示 (矩形) -->
                         <div id="u930" class="ax_default box_1" data-label="2-首页- 访问记录展示">
-                            <div id="u930_div" class=""></div>
-                            <div id="u930_text" class="text ">
-                                <p><span style="text-decoration:none;">&nbsp;&nbsp; &nbsp; 访问记录展示</span></p>
-                            </div>
+                            <button type="submit" class="u930_div">&nbsp;&nbsp; &nbsp; 访问记录展示</button>
+                            <style type="text/css">
+                                .u930_div {
+                                    border-width:0px;
+                                    position:absolute;
+                                    left:0px;
+                                    top:0px;
+                                    width:268px;
+                                    height:54px;
+                                    background:inherit;
+                                    background-color:rgba(255, 255, 255, 0.23921568627451);
+                                    box-sizing:border-box;
+                                    border-width:1px;
+                                    border-style:solid;
+                                    border-color:rgba(121, 121, 121, 1);
+                                    border-left:0px;
+                                    border-top:0px;
+                                    border-right:0px;
+                                    border-bottom:0px;
+                                    border-radius:0px;
+                                    border-top-left-radius:0px;
+                                    border-top-right-radius:0px;
+                                    border-bottom-right-radius:0px;
+                                    border-bottom-left-radius:0px;
+                                    -moz-box-shadow:none;
+                                    -webkit-box-shadow:none;
+                                    box-shadow:none;
+                                    font-family:'方正楷体简体 Regular', '方正楷体简体';
+                                    font-weight:400;
+                                    font-style:normal;
+                                    font-size:30px;
+                                    color:rgba(64, 64, 64, 0.831372549019608);
+                                    text-align:left;
+                                }
+                            </style>
+
                         </div>
 
                         <!-- 2-箭头- 访问记录展示 (形状) -->
@@ -822,16 +1183,49 @@
                             </div>
                         </div>
                     </div>
-
+                    </form>
+                    <form id="fm04-3" action="/操作记录展示" method="post" autocomplete="off">
                     <!-- 2-子菜单- 操作记录展示 (组 合) -->
                     <div id="u932" class="ax_default" data-label="2-子菜单- 操作记录展示" selectiongroup="0-菜单-下拉菜单" data-left="0" data-top="108" data-width="268" data-height="54">
 
                         <!-- 2-首页- 操作记录展示 (矩形) -->
                         <div id="u933" class="ax_default box_1" data-label="2-首页- 操作记录展示">
-                            <div id="u933_div" class=""></div>
-                            <div id="u933_text" class="text ">
-                                <p><span style="text-decoration:none;">&nbsp;&nbsp; &nbsp; 操作记录展示</span></p>
-                            </div>
+                            <button type="submit" class="u933_div">&nbsp;&nbsp; &nbsp; 操作记录展示</button>
+                            <style type="text/css">
+                                .u933_div {
+                                    border-width:0px;
+                                    position:absolute;
+                                    left:0px;
+                                    top:0px;
+                                    width:268px;
+                                    height:54px;
+                                    background:inherit;
+                                    background-color:rgba(255, 255, 255, 0.23921568627451);
+                                    box-sizing:border-box;
+                                    border-width:1px;
+                                    border-style:solid;
+                                    border-color:rgba(121, 121, 121, 1);
+                                    border-left:0px;
+                                    border-top:0px;
+                                    border-right:0px;
+                                    border-bottom:0px;
+                                    border-radius:0px;
+                                    border-top-left-radius:0px;
+                                    border-top-right-radius:0px;
+                                    border-bottom-right-radius:0px;
+                                    border-bottom-left-radius:0px;
+                                    -moz-box-shadow:none;
+                                    -webkit-box-shadow:none;
+                                    box-shadow:none;
+                                    font-family:'方正楷体简体 Regular', '方正楷体简体';
+                                    font-weight:400;
+                                    font-style:normal;
+                                    font-size:30px;
+                                    color:rgba(64, 64, 64, 0.831372549019608);
+                                    text-align:left;
+                                }
+                            </style>
+
                         </div>
 
                         <!-- 2-箭头- 操作记录展示 (形状) -->
@@ -842,6 +1236,7 @@
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -858,16 +1253,48 @@
         <div id="u936" class="ax_default ax_default_hidden" data-label="4-子菜单-下拉菜单" style="display:none; visibility: hidden">
             <div id="u936_state0" class="panel_state" data-label="State1" style="">
                 <div id="u936_state0_content" class="panel_state_content">
-
+                    <form id="fm05-1" action="/用户信息更正" method="post" autocomplete="off">
                     <!-- 4-子菜单- 用户信息更正 (组 合) -->
                     <div id="u937" class="ax_default" data-label="4-子菜单- 用户信息更正" selectiongroup="0-菜单-下拉菜单" data-left="0" data-top="0" data-width="268" data-height="54">
 
                         <!-- 4-首页- 用户信息更正 (矩形) -->
                         <div id="u938" class="ax_default box_1" data-label="4-首页- 用户信息更正">
-                            <div id="u938_div" class=""></div>
-                            <div id="u938_text" class="text ">
-                                <p><span style="text-decoration:none;">&nbsp;&nbsp; &nbsp; 用户信息更正</span></p>
-                            </div>
+                            <button type="submit" class="u938_div">&nbsp;&nbsp; &nbsp; 用户信息更正</button>
+                            <style type="text/css">
+                                .u938_div {
+                                    border-width:0px;
+                                    position:absolute;
+                                    left:0px;
+                                    top:0px;
+                                    width:268px;
+                                    height:54px;
+                                    background:inherit;
+                                    background-color:rgba(255, 255, 255, 0.23921568627451);
+                                    box-sizing:border-box;
+                                    border-width:1px;
+                                    border-style:solid;
+                                    border-color:rgba(121, 121, 121, 1);
+                                    border-left:0px;
+                                    border-top:0px;
+                                    border-right:0px;
+                                    border-bottom:0px;
+                                    border-radius:0px;
+                                    border-top-left-radius:0px;
+                                    border-top-right-radius:0px;
+                                    border-bottom-right-radius:0px;
+                                    border-bottom-left-radius:0px;
+                                    -moz-box-shadow:none;
+                                    -webkit-box-shadow:none;
+                                    box-shadow:none;
+                                    font-family:'方正楷体简体 Regular', '方正楷体简体';
+                                    font-weight:400;
+                                    font-style:normal;
+                                    font-size:30px;
+                                    color:rgba(64, 64, 64, 0.831372549019608);
+                                    text-align:left;
+                                }
+                            </style>
+
                         </div>
 
                         <!-- 4-箭头- 用户信息更正 (形状) -->
@@ -878,16 +1305,49 @@
                             </div>
                         </div>
                     </div>
-
+                    </form>
+                    <form id="fm05-2" action="/用户信息验证" method="post" autocomplete="off">
                     <!-- 4-子菜单- 用户信息验证 (组 合) -->
                     <div id="u940" class="ax_default" data-label="4-子菜单- 用户信息验证" selectiongroup="0-菜单-下拉菜单" data-left="0" data-top="54" data-width="268" data-height="54">
 
                         <!-- 4-首页- 用户信息验证 (矩形) -->
                         <div id="u941" class="ax_default box_1" data-label="4-首页- 用户信息验证">
-                            <div id="u941_div" class=""></div>
-                            <div id="u941_text" class="text ">
-                                <p><span style="text-decoration:none;">&nbsp;&nbsp; &nbsp; 用户信息验证</span></p>
-                            </div>
+                            <button type="submit" class="u941_div">&nbsp;&nbsp; &nbsp; 用户信息验证</button>
+                            <style type="text/css">
+                                .u941_div {
+                                    border-width:0px;
+                                    position:absolute;
+                                    left:0px;
+                                    top:0px;
+                                    width:268px;
+                                    height:54px;
+                                    background:inherit;
+                                    background-color:rgba(255, 255, 255, 0.23921568627451);
+                                    box-sizing:border-box;
+                                    border-width:1px;
+                                    border-style:solid;
+                                    border-color:rgba(121, 121, 121, 1);
+                                    border-left:0px;
+                                    border-top:0px;
+                                    border-right:0px;
+                                    border-bottom:0px;
+                                    border-radius:0px;
+                                    border-top-left-radius:0px;
+                                    border-top-right-radius:0px;
+                                    border-bottom-right-radius:0px;
+                                    border-bottom-left-radius:0px;
+                                    -moz-box-shadow:none;
+                                    -webkit-box-shadow:none;
+                                    box-shadow:none;
+                                    font-family:'方正楷体简体 Regular', '方正楷体简体';
+                                    font-weight:400;
+                                    font-style:normal;
+                                    font-size:30px;
+                                    color:rgba(64, 64, 64, 0.831372549019608);
+                                    text-align:left;
+                                }
+                            </style>
+
                         </div>
 
                         <!-- 4-箭头- 用户信息验证 (形状) -->
@@ -898,6 +1358,7 @@
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -71,53 +71,53 @@
           <p></p>
         </div>
       </div>
-      <form action="/uploadMed" method="post" name="uploadMedForm">
-      <!-- 身份证-注册 (文本框) -->
-      <div id="u913" class="ax_default text_field" data-label="身份证-注册">
-        <div id="u913_div" class=""></div>
-        <input id="u913_input" type="file" value="" class="u913_input" name="datafiles"/>
-      </div>
-
-
-      <!-- Unnamed (矩形) -->
-      <div id="u914" class="ax_default label">
-        <div id="u914_div" class=""></div>
-        <div id="u914_text" class="text ">
-          <p><span style="text-decoration:none;color:#FF0000;">* </span><span style="text-decoration:none;color:#404040;">选择数据</span><span style="text-decoration:none;">:</span></p>
+      <form action="/uploadMed" method="post" name="uploadMedForm" enctype="multipart/form-data">
+        <!-- 身份证-注册 (文本框) -->
+        <div id="u913" class="ax_default text_field" data-label="身份证-注册">
+          <div id="u913_div" class=""></div>
+          <input id="u913_input" type="file" value="" class="u913_input" name="datafiles"/>
         </div>
-      </div>
 
-      <!-- 真实姓名-注册 (矩形) -->
-      <div id="u915" class="ax_default label" data-label="真实姓名-注册">
-        <div id="u915_div" class=""></div>
-        <div id="u915_text" class="text ">
-          <p><span style="text-decoration:none;color:#FF0000;">* </span><span style="text-decoration:none;color:#3C3A3A;">添加描述:</span></p>
-        </div>
-      </div>
-      <!-- 邮箱-注册 (文本框) -->
-      <div id="u916" class="ax_default text_field" data-label="邮箱-注册">
-        <div id="u916_div" class=""></div>
-        <input id="u916_input" type="text" value="" class="u916_input"/>
-      </div>
 
-      <!-- 数据上传 (矩形) -->
-      <div id="u917" class="ax_default primary_button" data-label="数据上传">
-        <div id="u917_div" class=""></div>
-        <div id="u917_text" class="text ">
-        <!-- <button type="button" name="button" class="btn" style="border:none;background-color: transparent;">数据上传</button> -->
-        <!-- <button type="button" name="button" class="btn" >数据上传</button> -->
-      <p><span style="text-decoration:none;" class="botton">数据上传</span></p>
+        <!-- Unnamed (矩形) -->
+        <div id="u914" class="ax_default label">
+          <div id="u914_div" class=""></div>
+          <div id="u914_text" class="text ">
+            <p><span style="text-decoration:none;color:#FF0000;">* </span><span style="text-decoration:none;color:#404040;">选择数据</span><span style="text-decoration:none;">:</span></p>
+          </div>
         </div>
-      </div>
 
-      <!-- Unnamed (矩形) -->
-      <div id="u918" class="ax_default label">
-        <div id="u918_div" class=""></div>
-        <div id="u918_text" class="text ">
-          <p><span style="text-decoration:none;">注：仅可选择xlsx、xls、csv格式文件</span></p>
+        <!-- 真实姓名-注册 (矩形) -->
+        <div id="u915" class="ax_default label" data-label="真实姓名-注册">
+          <div id="u915_div" class=""></div>
+          <div id="u915_text" class="text ">
+            <p><span style="text-decoration:none;color:#FF0000;">* </span><span style="text-decoration:none;color:#3C3A3A;">添加描述:</span></p>
+          </div>
         </div>
-      </div>
-    </form>
+        <!-- 邮箱-注册 (文本框) -->
+        <div id="u916" class="ax_default text_field" data-label="邮箱-注册">
+          <div id="u916_div" class=""></div>
+          <input id="u916_input" type="text" value="" class="u916_input"/>
+        </div>
+
+        <!-- 数据上传 (矩形) -->
+        <div id="u917" class="ax_default primary_button" data-label="数据上传">
+          <div id="u917_div" class=""></div>
+          <div id="u917_text" class="text ">
+          <!-- <button type="button" name="button" class="btn" style="border:none;background-color: transparent;">数据上传</button> -->
+          <!-- <button type="button" name="button" class="btn" >数据上传</button> -->
+        <p><span style="text-decoration:none;" class="botton">数据上传</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u918" class="ax_default label">
+          <div id="u918_div" class=""></div>
+          <div id="u918_text" class="text ">
+            <p><span style="text-decoration:none;">注：仅可选择xlsx、xls、csv格式文件</span></p>
+          </div>
+        </div>
+      </form>
 
       <!-- 页面头部样式 (组 合) -->
       <div id="u919" class="ax_default" data-label="页面头部样式" data-left="0" data-top="0" data-width="2054" data-height="334">

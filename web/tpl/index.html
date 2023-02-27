@@ -110,8 +110,7 @@
         <!-- 退出系统 (形状) -->
         <div id="u318" class="ax_default primary_button" data-label="退出系统">
             <form id="fm0-0" action="/loginout" method="post" autocomplete="off">
-
-                <button type="submit" class="u318_img" style="color:white">退出系统</button>
+                <button type="submit" class="u318_img" style="color:white">退出登录</button>
                 <style type="text/css">
                     .u318_img {
                         border-width:0px;
@@ -142,27 +141,31 @@
             <form id="fm0-1" action="/用户信息展示" method="post" autocomplete="off">
             <!-- 用户头像-图片 (图片) -->
             <div id="u320" class="ax_default _图片" data-label="用户头像-图片">
-                <img id="u320_img" class="img " src="static/images/04高级搜索界面/u188.svg"/>
-                    <button type="submit" class="u320_text" style="display:none; visibility: hidden"></button>
-                <style type="text/css">
-                    .u320_text {
-                        border-width:0px;
-                        word-wrap:break-word;
-                        text-transform:none;
-                        visibility:hidden;
-                    }
-                </style>
+
+                <button type="submit"  class="u320_img" >
+                    <style type="text/css">
+                        .u320_img {
+                            border-width:0px;
+                            position:absolute;
+                            left:0px;
+                            top:0px;
+                            width:89px;
+                            height:86px;
+                        }
+                    </style>
+                    <img src="static/images/04高级搜索界面/u188.svg"/>
+                </button>
+
             </div>
-            </form>
 
             <!-- Unnamed (矩形) -->
             <div id="u321" class="ax_default label">
                 <div id="u321_div" class=""></div>
                 <div id="u321_text" class="text ">
-                    <p><span style="text-decoration:none;">{{.CurrentUser.LoginName}}</span></p><p><span style="text-decoration:none;">uid:123456</span></p>
+                    <p><span style="text-decoration:none;">{{.CurrentUser.LoginName}}</span></p><p><span style="text-decoration:none;">角色: {{.CurrentUser.Identity}}</span></p>
                 </div>
             </div>
-
+            </form>
         </div>
 
     </div>
@@ -172,7 +175,7 @@
 
         <!-- 搜索框 (组 合) -->
         <div id="u323" class="ax_default" data-label="搜索框" data-left="572" data-top="396" data-width="716" data-height="63">
-
+            <form id="fm2-0" action="/简单搜索展示" method="post" autocomplete="off">
             <!-- 搜索图标 (矩形) -->
             <div id="u324" class="ax_default box_1" data-label="搜索图标">
                 <div id="u324_div" class=""></div>
@@ -181,24 +184,44 @@
                 </div>
             </div>
 
+
+
+            <form action="search_method" >
+                
+
+         
+
+                <select name="search_select" style="width: 135px;   height:52px; margin-left:420px; margin-top:402px; text-align: center; font-size: 22px;">
+                    <option id="0">-搜索方式-</option>
+                    <option id="1">深度搜索</option>
+                    <option id="2">广度搜索</option>
+                    <option id="3">其他方式</option>
+                </select>
+
+
+
+
             <!-- 搜索框 (文本框) -->
             <div id="u325" class="ax_default text_field" data-label="搜索框" title="请输入搜索关键字">
                 <div id="u325_div" class=""></div>
-                <input id="u325_input" type="text" value="" class="u325_input" title="请输入搜索关键字"/>
+                <input id="u325_input" type="text" value="" class="u325_input" name="search_key" title="请输入搜索关键字"/>
             </div>
 
             <!-- 搜索按钮 (图片) -->
             <div id="u326" class="ax_default _图片" data-label="搜索按钮">
-                <img id="u326_img" class="img " src="static/images/old主页面/搜索按钮_u264.png"/>
+                <!--<img id="u326_img" class="img " src="static/images/old主页面/搜索按钮_u264.png"/>
                 <div id="u326_text" class="text " style="display:none; visibility: hidden">
                     <p></p>
-                </div>
+                </div>-->
+                <button type="submit" style="height: 63px;width: 110px;">搜 索</button>
             </div>
+        </form>
         </div>
 
         <!-- 高级搜索按钮 (矩形) -->
-        <form id="fm2" action="/高级搜索展示" method="post" autocomplete="off">
-            <div id="u327" class="ax_default primary_button" data-label="高级搜索按钮">
+        <div id="u327" class="ax_default primary_button" data-label="高级搜索按钮">
+
+            <form id="fm2" action="/高级搜索展示" method="post" autocomplete="off">
                 <button type="submit" class="u327_div" style="color:white">高级搜索</button>
                 <style type="text/css">
                     .u327_div {
@@ -221,8 +244,10 @@
                         font-size:26px;
                     }
                 </style>
-            </div>
-        </form>
+            </form>
+
+        </div>
+
 
         <!-- 轮播图 (动态面板) -->
         <div id="u328" class="ax_default" data-label="轮播图">
@@ -397,7 +422,7 @@
 
                                 <!-- 0-首页- 本地存储详情 (矩形) -->
                                 <div id="u343" class="ax_default box_1" data-label="0-首页- 本地存储详情">
-                                    <button type="submit" class="u343_div">&nbsp;&nbsp; &nbsp; 区块信息展示</button>
+                                    <button type="submit" class="u343_div">&nbsp;&nbsp; &nbsp; 本地存储详情</button>
                                     <style type="text/css">
                                         .u343_div {
                                             border-width:0px;
@@ -1055,9 +1080,10 @@
                 </div>
             </div>
 
-            <!-- 未认证 (图片) -->
+            <!-- 未认证 (图片) src="static/images/01主页面/未认证_u385.png"-->
+            <!-- 已认证 (图片) src="static/images/01主页面/u311.png"-->
             <div id="u385" class="ax_default _图片" data-label="未认证">
-                <img id="u385_img" class="img " src="static/images/01主页面/未认证_u385.png"/>
+                <img id="u385_img" class="img " src="static/images/01主页面/u311.png"/>
                 <div id="u385_text" class="text " style="display:none; visibility: hidden">
                     <p></p>
                 </div>
@@ -1065,53 +1091,53 @@
         </div>
 
         <!-- 搜索模式 (组 合) -->
-        <div id="u386" class="ax_default ax_default_hidden" data-label="搜索模式" style="display:none; visibility: hidden" data-left="966" data-top="472" data-width="444" data-height="373">
+        <!--<div id="u386" class="ax_default ax_default_hidden" data-label="搜索模式" style="display:none; visibility: hidden" data-left="966" data-top="472" data-width="444" data-height="373">-->
 
             <!-- Unnamed (矩形) -->
-            <div id="u387" class="ax_default box_1">
+            <!--<div id="u387" class="ax_default box_1">
                 <div id="u387_div" class=""></div>
                 <div id="u387_text" class="text " style="display:none; visibility: hidden">
                     <p></p>
                 </div>
             </div>
 
-            <!-- Unnamed (文本框) -->
+             Unnamed (文本框) 
             <div id="u388" class="ax_default text_field">
                 <div id="u388_div" class=""></div>
                 <input id="u388_input" type="text" value="&nbsp;效率优先" class="u388_input"/>
-            </div>
+            </div>-->
 
-            <!-- Unnamed (文本框) -->
+             <!--Unnamed (文本框) 
             <div id="u389" class="ax_default text_field">
                 <div id="u389_div" class=""></div>
                 <input id="u389_input" type="text" value="&nbsp;深度优先" class="u389_input"/>
-            </div>
+            </div>-->
 
             <!-- Unnamed (文本框) -->
-            <div id="u390" class="ax_default text_field">
+            <!--<div id="u390" class="ax_default text_field">
                 <div id="u390_div" class=""></div>
                 <input id="u390_input" type="text" value="&nbsp;匹配度优先" class="u390_input"/>
-            </div>
+            </div>-->
 
             <!-- Unnamed (文本框) -->
-            <div id="u391" class="ax_default text_field">
+            <!--<div id="u391" class="ax_default text_field">
                 <div id="u391_div" class=""></div>
                 <input id="u391_input" type="text" value="&nbsp;仅显示可访问" class="u391_input"/>
-            </div>
+            </div>-->
 
             <!-- 访问机构 (矩形) -->
-            <div id="u392" class="ax_default _一级标题" data-label="访问机构">
+            <!--<div id="u392" class="ax_default _一级标题" data-label="访问机构">
                 <div id="u392_div" class=""></div>
                 <div id="u392_text" class="text ">
                     <p><span style="text-decoration:none;">选择搜索模式</span></p>
                 </div>
-            </div>
+            </div>-->
 
             <!-- 单选 (组 合) -->
-            <div id="u393" class="ax_default" data-label="单选" data-left="0" data-top="0" data-width="0" data-height="0">
+            <!--<div id="u393" class="ax_default" data-label="单选" data-left="0" data-top="0" data-width="0" data-height="0">-->
 
                 <!-- 001-单选按钮 (单选按钮) -->
-                <div id="u394" class="ax_default radio_button" data-label="001-单选按钮" selectiongroup="单选">
+                <!--<div id="u394" class="ax_default radio_button" data-label="001-单选按钮" selectiongroup="单选">
                     <label id="u394_input_label" for="u394_input" style="position: absolute; left: 0px;">
                         <img id="u394_img" class="img " src="static/images/01主页面/001-单选按钮_u394.svg"/>
                         <div id="u394_text" class="text " style="display:none; visibility: hidden">
@@ -1119,10 +1145,10 @@
                         </div>
                     </label>
                     <input id="u394_input" type="radio" value="radio" name="单选"/>
-                </div>
+                </div>-->
 
                 <!-- 002-单选按钮 (单选按钮) -->
-                <div id="u395" class="ax_default radio_button" data-label="002-单选按钮" selectiongroup="单选">
+                <!--<div id="u395" class="ax_default radio_button" data-label="002-单选按钮" selectiongroup="单选">
                     <label id="u395_input_label" for="u395_input" style="position: absolute; left: 0px;">
                         <img id="u395_img" class="img " src="static/images/01主页面/002-单选按钮_u395.svg"/>
                         <div id="u395_text" class="text " style="display:none; visibility: hidden">
@@ -1130,10 +1156,10 @@
                         </div>
                     </label>
                     <input id="u395_input" type="radio" value="radio" name="单选"/>
-                </div>
+                </div>-->
 
                 <!-- 003-单选按钮 (单选按钮) -->
-                <div id="u396" class="ax_default radio_button" data-label="003-单选按钮" selectiongroup="单选">
+                <!--<div id="u396" class="ax_default radio_button" data-label="003-单选按钮" selectiongroup="单选">
                     <label id="u396_input_label" for="u396_input" style="position: absolute; left: 0px;">
                         <img id="u396_img" class="img " src="static/images/01主页面/003-单选按钮_u396.svg"/>
                         <div id="u396_text" class="text " style="display:none; visibility: hidden">
@@ -1141,10 +1167,10 @@
                         </div>
                     </label>
                     <input id="u396_input" type="radio" value="radio" name="单选"/>
-                </div>
+                </div>-->
 
                 <!-- 004-单选按钮 (单选按钮) -->
-                <div id="u397" class="ax_default radio_button" data-label="004-单选按钮" selectiongroup="单选">
+                <!--<div id="u397" class="ax_default radio_button" data-label="004-单选按钮" selectiongroup="单选">
                     <label id="u397_input_label" for="u397_input" style="position: absolute; left: 0px;">
                         <img id="u397_img" class="img " src="static/images/01主页面/004-单选按钮_u397.svg"/>
                         <div id="u397_text" class="text " style="display:none; visibility: hidden">
@@ -1152,9 +1178,9 @@
                         </div>
                     </label>
                     <input id="u397_input" type="radio" value="radio" name="单选"/>
-                </div>
-            </div>
-        </div>
+                </div>-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
     <script src="static/resources/scripts/axure/ios.js"></script>
 </body>

@@ -222,7 +222,6 @@ func queryDB(DB *sql.DB, Sql string) map[int]string {
 	if err != nil {
 		fmt.Println(err)
 	}
-	// fmt.Println(subId)
 	data := make(map[int]string)
 	index := 0
 	for rows.Next() {
@@ -438,10 +437,10 @@ func SelectDBSingle(DB *sql.DB, data []string) *MedicalRecord {
 	return m
 }
 
-func DeleteDB(DB *sql.DB, data []string) bool {
+func DeleteDB(DB *sql.DB, casenumer string) bool {
 	sqlString := "delete  from base_info where _CaseNumber = ?"
 	stmt, _ := DB.Prepare(sqlString)
-	r, err0 := stmt.Exec(data[3])
+	r, err0 := stmt.Exec(casenumer)
 	if err0 != nil {
 		fmt.Println("删除记录失败：", err0)
 		return false
